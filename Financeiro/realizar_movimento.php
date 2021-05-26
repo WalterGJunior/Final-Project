@@ -1,13 +1,20 @@
 <?php
 
 require_once '../DAO/MovimentoDAO.php';
+require_once '../DAO/ContaDAO.php';
+require_once '../DAO/EmpresaDAO.php';
+require_once '../DAO/CategoriaDAO.php';
+
+$dao_category = new CategoriaDAO();
+$dao_company = new EmpresaDAO();
+$dao_account = new ContaDAO();
 
 if (isset($_POST['btn_gravar'])) {
     $tipo = $_POST['tipo'];
     $data = $_POST['data'];
     $valor = $_POST['valor'];
     $categoria = $_POST['categoria'];
-    $empresa = $_POST['empresa'];
+    $empresa = $_POST['company'];
     $conta = $_POST['conta'];
     $obs = $_POST['obs'];
 
@@ -15,6 +22,10 @@ if (isset($_POST['btn_gravar'])) {
 
     $ret = $objDao->RealizarMovimento($tipo, $data, $valor, $categoria, $empresa, $conta, $obs);
 }
+
+$categories = $dao_category ->Consultarcategoria();
+$companies = $dao_company -> SearchCompany();
+$accounts = $dao_account -> SearchAccount();
 
 ?>
 
@@ -39,7 +50,7 @@ include_once '_head.php';
                 <div class="row">
                     <div class="col-md-12">
 
-                    <?php include_once '_msg.php'; ?>
+                        <?php include_once '_msg.php'; ?>
 
                         <h2>Realizar Movimento</h2>
                         <h5>Aqui você pode realizar todos movimentos de Entradas e Saídas. </h5>
@@ -50,6 +61,7 @@ include_once '_head.php';
                 <hr />
 
                 <form action="realizar_movimento.php" method="POST">
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Tipo:</label>
@@ -72,15 +84,24 @@ include_once '_head.php';
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Categoria:</label>
-                            <select class="form-control" name="categoria" id="data">
+                            <select class="form-control" name="categoria" id="categoria">
                                 <option value="">Selecione</option>
+                                <?php foreach($categories as $item){?>
+                                    <option value="<?$item['id_category'] ?>">
+                                        <?=$item=['category_name']?>
+                                    </option>
+                                <?php }?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Empresa:</label>
-                            <select class="form-control" name="empresa" id="empresa">
+                            <select class="form-control" name="company" id="company">
                                 <option value="">Selecione</option>
-
+                                <?php foreach($companies as $item){?>
+                                <option value="<?$item['id_company']?>">
+                                    <?=$item=['company_name']?>
+                                </option>
+                                <?php }?>         
                             </select>
                         </div>
                         <div class="form-group">
@@ -99,6 +120,7 @@ include_once '_head.php';
                         <button type="submit" onclick="return ValidarMovimento()" class="btn btn-success" name="btn_gravar">Gravar</button>
 
                     </div>
+
                 </form>
                 <!-- /. PAGE INNER  -->
             </div>
@@ -106,7 +128,7 @@ include_once '_head.php';
         </div>
         <!-- /. WRAPPER  -->
 
-
+    
 
 </body>
 

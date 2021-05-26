@@ -1,3 +1,11 @@
+<?php
+
+require_once '../DAO/EmpresaDAO.php';
+
+$objDao = new EmpresaDAO();
+$companies = $objDao->SearchCompany();
+
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -18,6 +26,7 @@ include_once '_head.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
+                        <?php include_once '_msg.php'?>
                         <h2>Consultar Empresas</h2>
                         <h5>Consulte todas as empresas aqui </h5>
 
@@ -42,14 +51,18 @@ include_once '_head.php';
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                    <?php for($i = 0; $i<count($companies);$i++) { ?>
+
                                         <tr class="odd gradeX">
-                                            <td>(Nome)</td>
-                                            <td>(Telefone)</td>
-                                            <td>(Endereço)</td>
+                                            <td><?= $companies[$i]['company_name']?></td>
+                                            <td><?= $companies[$i]['telephone_number']?></td>
+                                            <td><?= $companies[$i]['company_address']?></td>
                                             <td>
-                                                <a href="alterar_empresa.php" class="btn btn-warning btn-sm">Alterar</a>
+                                                <a href="alterar_empresa.php?cod=<?=$companies[$i]['id_company']?>" class="btn btn-warning btn-sm">Alterar</a>
                                             </td>
-                                        </tr>                                        
+                                        </tr> 
+                                    <?php }?>                                       
                                     </tbody>
                                 </table>
                             </div>

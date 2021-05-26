@@ -2,12 +2,39 @@
 
 require_once '../DAO/CategoriaDAO.php';
 
-if (isset($_POST['btn_salvar'])) {
+$objDao = new CategoriaDAO();
+
+if (isset($_GET['cod']) && is_numeric($_GET['cod'])){
+    
+    $idCategoria = $_GET['cod'];
+
+    $dados = $objDao->detalharCategoria($idCategoria);
+
+    if(count($dados) == 0){
+        header('location: consultar_categoria.php');
+        exit;
+    }
+
+}else if (isset($_POST['btn_salvar'])) {
+    $idCategoria = $_POST['cod'];
     $nome = $_POST['nome'];
 
-    $objDao = new CategoriaDAO();
+   $ret = $objDao->AlterarCategoria($nome, $idCategoria);
 
-    $ret = $objDao->AlterarCategoria($nome);
+   header('location: consultar_categoria.php?ret=' . $ret);
+   exit;
+
+}else if(isset($_POST['btn_excluir'])){
+    $idCategoria = $_POST['cod'];
+
+    $ret = $objDao->DeleteCategoria($idCategoria);
+
+    header('location: consultar_categoria.php?ret=' . $ret);
+    exit;
+
+}else{
+    header('location: consultar_categoria.php');
+    exit;
 }
 
 ?>
@@ -45,12 +72,32 @@ include_once '_head.php';
                 <hr />
 
                 <form action="alterar_categoria.php" method="POST">
+                <input type="hidden" name="cod" value="<?= $dados[0]['id_category']?>">
                     <div class="form-group">
                         <label>Nome da Categoria</label>
-                        <input class="form-control" placeholder="Digite o nome da categoria. Exemplo: Conta de Luz" name="nome" id="nomecategoria" />
+                        <input class="form-control" placeholder="Digite o nome da categoria. Exemplo: Conta de Luz" 
+                               name="nome" id="nomecategoria" value="<?= $dados[0]['category_name']?>"  />
                     </div>
-                    <button type="submit" onclick="return ValidarCategoria()" class="btn btn-success" name="btn_salvar">Salvar</button>
-                    <button type="submit" class="btn btn-danger" name="btn_excluir">Excluir</button>
+                    <button type="submit" onclick="return ValidarCategoria()" class="btn btn-success" 
+                            name="btn_salvar">Salvar</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete">Excluir</button>
+                            <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Confirm the exclusion</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete the <b>"<?=$dados[0]['category_name']?>"</b> category? 
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary" name="btn_excluir">Yes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->

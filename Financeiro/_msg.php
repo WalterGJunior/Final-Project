@@ -1,5 +1,9 @@
 <?php
 
+if(isset($_GET['ret'])){
+    $ret = $_GET['ret'];
+}
+
 if (isset($ret)) {
 
     switch ($ret) {
@@ -29,5 +33,10 @@ if (isset($ret)) {
                         A senha e o Repetir senha não conferem;
                     </div>';
             break;
+            case -4:
+                echo '<div class="alert alert-danger">
+                          O registro não pode ser excluído pois esta em uso;
+                        </div>';
+                break;    
     }
 }

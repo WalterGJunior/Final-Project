@@ -1,3 +1,12 @@
+<?php
+
+require_once '../DAO/ContaDAO.php';
+
+$objDao = new ContaDAO();
+$Accounts = $objDao->SearchAccount();
+
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -18,6 +27,7 @@ include_once '_head.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
+                        <?php include_once '_msg.php'?>
                         <h2>Consultar Contas</h2>
                         <h5>Consulte todas as contas aqui </h5>
 
@@ -43,15 +53,17 @@ include_once '_head.php';
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php for($i = 0; $i<count($Accounts);$i++) { ?>
                                         <tr class="odd gradeX">
-                                            <td>(Banco)</td>
-                                            <td>(Agência)</td>
-                                            <td>(num. da Conta)</td>
-                                            <td>(Saldo)</td>                                            
+                                            <td><?= $Accounts[$i]['bank_name']?></td>
+                                            <td><?= $Accounts[$i]['branch_number']?></td>
+                                            <td><?= $Accounts[$i]['account_number']?></td>
+                                            <td><?= $Accounts[$i]['available_founds']?></td>                                            
                                             <td>
-                                                <a href="alterar_conta.php" class="btn btn-warning btn-sm">Alterar</a>
+                                                <a href="alterar_conta.php?cod=<?=$Accounts[$i]['id_account']?>" class="btn btn-warning btn-sm">Alterar</a>
                                             </td>
-                                        </tr>                                        
+                                        </tr> 
+                                    <?php }?>                                          
                                     </tbody>
                                 </table>
                             </div>
