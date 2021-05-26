@@ -14,7 +14,7 @@ if (isset($_POST['btn_gravar'])) {
     $data = $_POST['data'];
     $valor = $_POST['valor'];
     $categoria = $_POST['categoria'];
-    $empresa = $_POST['company'];
+    $empresa = $_POST['empresa'];
     $conta = $_POST['conta'];
     $obs = $_POST['obs'];
 
@@ -50,7 +50,7 @@ include_once '_head.php';
                 <div class="row">
                     <div class="col-md-12">
 
-                        <?php include_once '_msg.php'; ?>
+                    <?php include_once '_msg.php'; ?>
 
                         <h2>Realizar Movimento</h2>
                         <h5>Aqui você pode realizar todos movimentos de Entradas e Saídas. </h5>
@@ -61,7 +61,6 @@ include_once '_head.php';
                 <hr />
 
                 <form action="realizar_movimento.php" method="POST">
-
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Tipo:</label>
@@ -84,30 +83,35 @@ include_once '_head.php';
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Categoria:</label>
-                            <select class="form-control" name="categoria" id="categoria">
+                            <select class="form-control" name="categoria" id="data">
                                 <option value="">Selecione</option>
                                 <?php foreach($categories as $item){?>
-                                    <option value="<?$item['id_category'] ?>">
-                                        <?=$item=['category_name']?>
+                                    <option value="<?= $item['id_category']?>">
+                                        <?= $item['category_name']?>
                                     </option>
                                 <?php }?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Empresa:</label>
-                            <select class="form-control" name="company" id="company">
+                            <select class="form-control" name="empresa" id="empresa">
                                 <option value="">Selecione</option>
                                 <?php foreach($companies as $item){?>
-                                <option value="<?$item['id_company']?>">
-                                    <?=$item=['company_name']?>
-                                </option>
-                                <?php }?>         
+                                    <option value="<?= $item['id_company']?>">
+                                        <?= $item['company_name']?>
+                                    </option>
+                                <?php }?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Conta:</label>
                             <select class="form-control" name="conta" id="conta">
                                 <option value="">Selecione</option>
+                                <?php foreach($accounts as $item){?>
+                                    <option value="<?= $item['id_account']?>">
+                                        <?= 'Bank Name: ' . $item['bank_name'] . ', Branch Number: ' . $item['branch_number'] . ' / ' . $item['account_number'] . ', Available Founds: ' . $item['available_founds']?>
+                                    </option>
+                                <?php }?>
                             </select>
                         </div>
                     </div>
@@ -120,7 +124,6 @@ include_once '_head.php';
                         <button type="submit" onclick="return ValidarMovimento()" class="btn btn-success" name="btn_gravar">Gravar</button>
 
                     </div>
-
                 </form>
                 <!-- /. PAGE INNER  -->
             </div>
@@ -128,7 +131,7 @@ include_once '_head.php';
         </div>
         <!-- /. WRAPPER  -->
 
-    
+
 
 </body>
 
