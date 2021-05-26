@@ -93,12 +93,12 @@ function ValidarMovimento(){
 function ValidarConsultarMovimento(){
     if($("#dataInicial").val().trim() == ""){
         alert("Preencher o campo DATA INICIAL");
-        $("#dataInicial".focus());
+        $("#dataInicial").focus();
         return false;
     }
     if($("#dataFinal").val().trim() == ""){
         alert("Preencher o campo DATA FINAL");
-        $("#dataFinal".focus());
+        $("#dataFinal").focus();
         return false;
     }
 }

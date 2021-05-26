@@ -84,7 +84,7 @@ class MovimentoDAO extends Conexao{
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'delete 
                         from tb_transactions  
-                        where id_transaction = ?';
+                        where id_transactions = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -105,12 +105,12 @@ class MovimentoDAO extends Conexao{
             if($type == 1){
                 $sql_command = 'update tb_account 
                                     set available_founds = available_founds - ?
-                                where id_conta = ?';
+                                where id_account = ?';
             }else if($type == 2){
                 
                 $sql_command = 'update tb_account 
                                     set available_founds = available_founds + ?
-                                where id_conta = ?';
+                                where id_account = ?';
             }
 
             $sql = $connection->prepare($sql_command); 

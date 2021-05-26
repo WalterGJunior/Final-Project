@@ -84,6 +84,54 @@ class UsuarioDAO extends Conexao{
         }
     }
 
+    public function CheckDuplicatedEmails($email){
+        if(trim($email) == ''){
+            return 0;
+        }
+
+        $connection = parent::retornarConexao();
+
+        $sql_command = 'select coun(user_email) as result from tb_user where user_email = ?';
+
+        $sql = new PDOStatement();
+        $sql = $connection->prepare($sql_command);
+
+        $sql->bindValue(1, $email);
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        $result = $sql->fetchAll();
+
+        return $result[0]['result'];
+    }
+
+    public function CheckDuplicatedEmailsChanges($email){
+        if(trim($email) == ''){
+            return 0;
+        }
+
+        $connection = parent::retornarConexao();
+
+        $sql_command = 'select coun(user_email) as result 
+                        from tb_user where user_email = ? and id_user != ?';
+
+        $sql = new PDOStatement();
+        $sql = $connection->prepare($sql_command);
+
+        $sql->bindValue(1, $email);
+        $sql->bindValue(2,UtilDAO::CodigoLogado());
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        $result = $sql->fetchAll();
+
+        return $result[0]['result'];
+    }
+
     public function CriarCadastro($nome, $email, $senha, $rsenha){
         if(trim($nome) == '' || trim($email) == '' || trim($senha) == '' || trim($rsenha) == ''){
             return 0;
@@ -93,8 +141,34 @@ class UsuarioDAO extends Conexao{
             return -2;
         } 
         
-        if(strlen($senha) != trim($rsenha)){
+        if(trim($senha) != trim($rsenha)){
             return -3;
+        } 
+
+        if($this->CheckDuplicatedEmailsChanges($email) !=0){
+            return -5;
+        }
+
+        $connection = parent::retornarConexao();
+        $sql_command = 'insert into tb_user(user_name, user_email, user_password, registration_date)
+                        values (?,?,?,?)';
+
+        $sql = new PDOStatement();
+        
+        $sql = $connection->prepare($sql_command);
+
+        $sql ->bindValue(1, $nome);
+        $sql ->bindValue(2, $email);
+        $sql ->bindValue(3, $senha);
+        $sql ->bindValue(4, date('Y-m-d'));
+
+        try{
+            $sql ->execute();
+            return 1;
+        }catch(Exception $ex){
+            echo $ex->getMessage();
+            return -1;
+
         }
     }
 

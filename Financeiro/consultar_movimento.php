@@ -14,6 +14,18 @@ if (isset($_POST['btn_search'])) {
     $objDao = new MovimentoDAO();
 
     $transaction = $objDao->SearchTransaction($type, $initial_date, $final_date);
+
+}else if(isset($_POST['btn_excluir'])){
+
+    $id_transaction = $_POST['id_transaction'];
+    $id_account = $_POST['id_account'];
+    $amount = $_POST['amount'];
+    $type = $_POST['type'];
+
+    $objDao = new MovimentoDAO();
+
+    $ret = $objDao->DeleteTransaction($id_transaction, $id_account, $amount, $type);
+
 }
 
 
@@ -40,6 +52,9 @@ include_once '_head.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
+                    
+                    <?php include_once '_msg.php'; ?>
+
                         <h2>Consultar Movimento</h2>
                         <h5>Consulte todos as movimentos em um determinado período </h5>
 
