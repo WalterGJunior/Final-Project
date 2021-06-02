@@ -1,5 +1,8 @@
 <?php
 
+require_once '../DAO/UtilDAO.php';
+UtilDAO::VerifySession();
+
 require_once '../DAO/UsuarioDAO.php';
 
 $objDao = new UsuarioDAO();

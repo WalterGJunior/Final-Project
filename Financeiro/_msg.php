@@ -42,6 +42,11 @@ if (isset($ret)) {
                 echo '<div class="alert alert-danger">
                             E-mail already registered! Please enter a different email address;
                         </div>';
-            break;    
+            break;
+            case -6:
+                echo '<div class="alert alert-danger">
+                            User not found;
+                        </div>';
+            break;        
     }
 }

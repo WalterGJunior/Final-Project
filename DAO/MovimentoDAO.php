@@ -197,4 +197,44 @@ class MovimentoDAO extends Conexao{
 
     }
 
+    public function TotalEarnings(){
+        
+        $connection = parent::retornarConexao();
+        $sql_command = 'select sum(transactions_amount) as total
+                        from tb_transactions
+                        where transaction_type = 1,
+                        and fk_id_user = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $connection->prepare($sql_command);
+
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+
+    public function TotalExpenses(){
+        $connection = parent::retornarConexao();
+
+        $sql_command = 'select sum(transactions_amount) as total
+                        from tb_transactions
+                        where transaction_type = 2,
+                        and fk_id_user = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $connection->prepare($sql_command);
+
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+
 }

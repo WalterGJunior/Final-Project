@@ -1,3 +1,14 @@
+<?php
+
+
+require_once '../DAO/UtilDAO.php';
+
+if(isset($_GET['close']) && $_GET['close']==1){
+    UtilDAO::disconnect();
+}
+
+?>
+
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
@@ -59,7 +70,7 @@
             </li>
 
             <li>
-                <a class="active-menu" href="blank.html">Sair</a>
+                <a class="active-menu" href="_navbar.php?close=1">Sair</a>
             </li>
         </ul>
 

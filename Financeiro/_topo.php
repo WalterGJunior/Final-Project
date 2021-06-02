@@ -1,3 +1,10 @@
+<?php
+
+require_once '../DAO/UtilDAO.php';
+
+
+?>
+
 <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -11,5 +18,5 @@
     <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Dúvidas Ligue para: (00) 999999-0000</div>
+font-size: 16px;">Hello, <?= UtilDAO::UserLoggedIn() ?> Dúvidas Ligue para: (00) 999999-0000</div>
 </nav>

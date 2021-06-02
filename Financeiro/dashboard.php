@@ -1,3 +1,9 @@
+<?php
+require_once '../DAO/UtilDAO.php';
+UtilDAO::VerifySession();
+
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 

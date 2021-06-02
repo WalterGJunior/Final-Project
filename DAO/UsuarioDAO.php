@@ -82,6 +82,35 @@ class UsuarioDAO extends Conexao{
         if(trim($email) == '' || trim($senha) == ''){
             return 0;
         }
+
+        $connection = parent::retornarConexao();
+
+        $sql_command = 'select id_user, user_name from tb_user
+                        where user_email = ? and user_password = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $connection->prepare($sql_command);
+
+        $sql ->bindValue(1, $email);
+        $sql ->bindValue(2, $senha);
+
+        $sql ->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        $user = $sql->fetchAll();
+
+        if(count($user)==0){
+            return -6;
+        }
+
+        $cod = $user[0]['id_user'];
+        $name = $user[0]['user_name'];
+        UtilDAO::CreateSession($cod, $name);
+
+        header('location: meus_dados.php');
+        exit;
     }
 
     public function CheckDuplicatedEmails($email){
