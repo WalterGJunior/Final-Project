@@ -45,9 +45,9 @@ include_once '_head.php';
 
                     <?php include_once '_msg.php'; ?>
 
-                        <h2>Meus Dados</h2>
-                        <h5>Nesta página, você poderá alterar os seus dados </h5>
-
+                        <h2>My Details</h2>
+                        <h5>On this page you can edit your personal information </h5>
+                        
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -55,14 +55,14 @@ include_once '_head.php';
 
                 <form action="meus_dados.php" method="POST">
                     <div class="form-group">
-                        <label>Nome</label>
-                        <input class="form-control" placeholder="Digite o seu nome" name="nome" id="nome" value="<?= $data[0]['user_name']?>"/>
+                        <label>Name</label>
+                        <input class="form-control" placeholder="Type your name" name="nome" id="nome" value="<?= $data[0]['user_name']?>"/>
                     </div>
                     <div class="form-group">
                         <label>E-mail</label>
-                        <input class="form-control" placeholder="Digite o seu E-mail" name="email" id="email" value="<?= $data[0]['user_email']?>"/>
+                        <input class="form-control" placeholder="Type your email" name="email" id="email" value="<?= $data[0]['user_email']?>"/>
                     </div>
-                    <button type="submit" onclick="return ValidarMeusDados()" class="btn btn-success" name="btn_gravar">Gravar</button>
+                    <button type="submit" onclick="return ValidarMeusDados()" class="btn btn-success" name="btn_gravar">Salve</button>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->

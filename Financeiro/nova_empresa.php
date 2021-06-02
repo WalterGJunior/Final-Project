@@ -39,8 +39,8 @@ include_once '_head.php';
 
                     <?php include_once '_msg.php'; ?>
 
-                        <h2>Nova Empresa</h2>
-                        <h5>Cadastre aqui todas as suas empresas </h5>
+                        <h2>New company</h2>
+                        <h5>Here you can register a new company to be used in your transactions </h5>
 
                     </div>
                 </div>
@@ -48,18 +48,18 @@ include_once '_head.php';
                 <hr />
                 <form action="nova_empresa.php" method="POST">
                     <div class="form-group">
-                        <label>Nome da empresa*:</label>
-                        <input class="form-control" placeholder="Digite aqui..." name="empresa" id="nomeempresa"/>
+                        <label>Company Name*:</label>
+                        <input class="form-control" placeholder="Type here..." name="empresa" id="nomeempresa"/>
                     </div>
                     <div class="form-group">
-                        <label>Telefone:</label>
-                        <input class="form-control" placeholder="Digite aqui..." name="telefone" />
+                        <label>Phone:</label>
+                        <input class="form-control" placeholder="Type here..." name="telefone" />
                     </div>
                     <div class="form-group">
-                        <label>Endereço:</label>
-                        <input class="form-control" placeholder="Digite aqui..." name="endereco" />
+                        <label>Address:</label>
+                        <input class="form-control" placeholder="Type here..." name="endereco" />
                     </div>
-                    <button type="submit" onclick="return ValidarEmpresa()" class="btn btn-success" name="btn_gravar">Gravar</button>
+                    <button type="submit" onclick="return ValidarEmpresa()" class="btn btn-success" name="btn_gravar">Salve</button>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->

@@ -33,8 +33,8 @@ include_once '_head.php';
                 <div class="row">
                     <div class="col-md-12">
                         <?php include_once '_msg.php' ?>
-                        <h2>Consultar Categorias</h2>
-                        <h5>Consulte todas as Categorias </h5>
+                        <h2>Search for your Categories</h2>
+                        <h5>Here you can find all registered categories</h5>
 
                     </div>
                 </div>
@@ -43,15 +43,15 @@ include_once '_head.php';
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Categorias Cadastradas. Caso deseje alterar, clique no botão.
+                        List of all registered categories. In case you want to change any, click on the button.
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Nome da Categoria</th>
-                                        <th>Ação</th>
+                                        <th>Category name</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,7 +59,7 @@ include_once '_head.php';
                                         <tr class="odd gradeX">
                                             <td><?= $item['category_name'] ?></td>
                                             <td>
-                                                <a href="alterar_categoria.php?cod=<?= $item['id_category'] ?>" class="btn btn-warning btn-sm">Alterar</a>
+                                                <a href="alterar_categoria.php?cod=<?= $item['id_category'] ?>" class="btn btn-warning btn-sm">Change</a>
                                             </td>
                                         </tr>
                                     <?php } ?>

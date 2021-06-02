@@ -29,8 +29,8 @@ include_once '_head.php';
                 <div class="row">
                     <div class="col-md-12">
                         <?php include_once '_msg.php'?>
-                        <h2>Consultar Empresas</h2>
-                        <h5>Consulte todas as empresas aqui </h5>
+                        <h2>Search for your Companies</h2>
+                        <h5>Here you can find all registered Companies </h5>
 
                     </div>
                 </div>
@@ -39,17 +39,17 @@ include_once '_head.php';
 
                 <div class="panel panel-default">
                         <div class="panel-heading">
-                             Empresas Cadastradas. Caso deseje alterar, clique no botão. 
+                        List of all registered companies. In case you want to change any, click on the button. 
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Nome da Categoria</th>
-                                            <th>Telefone</th>
-                                            <th>Endereço</th>
-                                            <th>Ação</th>
+                                            <th>Company Name</th>
+                                            <th>Phone</th>
+                                            <th>Address</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -61,7 +61,7 @@ include_once '_head.php';
                                             <td><?= $companies[$i]['telephone_number']?></td>
                                             <td><?= $companies[$i]['company_address']?></td>
                                             <td>
-                                                <a href="alterar_empresa.php?cod=<?=$companies[$i]['id_company']?>" class="btn btn-warning btn-sm">Alterar</a>
+                                                <a href="alterar_empresa.php?cod=<?=$companies[$i]['id_company']?>" class="btn btn-warning btn-sm">Change</a>
                                             </td>
                                         </tr> 
                                     <?php }?>                                       

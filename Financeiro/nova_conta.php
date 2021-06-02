@@ -40,8 +40,8 @@ include_once '_head.php';
                     
                     <?php include_once '_msg.php'; ?>
 
-                        <h2>Nova Conta</h2>
-                        <h5>Cadastre aqui todas as suas Contas Bancárias  </h5>
+                        <h2>New Account</h2>
+                        <h5>Here you can register a new bank account to be used in your transactions  </h5>
 
                     </div>
                 </div>
@@ -49,22 +49,22 @@ include_once '_head.php';
                 <hr />
                 <form action="nova_conta.php" method="POST">
                 <div class="form-group">
-                    <label>Nome do Banco*:</label>
-                    <input class="form-control" placeholder="Digite o nome do banco..." name="banco" id="banco"/>
+                    <label>Bank name*:</label>
+                    <input class="form-control" placeholder="Type the Bank name..." name="banco" id="banco"/>
                 </div>
                 <div class="form-group">
-                    <label>Agência*:</label>
-                    <input class="form-control" placeholder="Digite o nome da Agência..." name="agencia" id="agencia"/>
+                    <label>Branch Name*:</label>
+                    <input class="form-control" placeholder="Type the Branch name..." name="agencia" id="agencia"/>
                 </div>
                 <div class="form-group">
-                    <label>Número da Conta*:</label>
-                    <input class="form-control" placeholder="Digite o Número da Conta..." name="conta" id="name"/>
+                    <label>Account Number*:</label>
+                    <input class="form-control" placeholder="Type the Account Number..." name="conta" id="name"/>
                 </div>
                 <div class="form-group">
-                    <label>Saldo*:</label>
-                    <input class="form-control" placeholder="Digite o Saldo..." name="saldo" id="saldo"/>
+                    <label>Available funds*:</label>
+                    <input class="form-control" placeholder="Type the available funds..." name="saldo" id="saldo"/>
                 </div>
-                <button type="submit" onclick="return ValidarConta()" class="btn btn-success" name="btn_gravar">Gravar</button>
+                <button type="submit" onclick="return ValidarConta()" class="btn btn-success" name="btn_gravar">Salve</button>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->

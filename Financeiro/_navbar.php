@@ -25,7 +25,7 @@ if(isset($_GET['close']) && $_GET['close']==1){
                 <a href="#"><i class="fa fa-sitemap fa-3x"></i> Category<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="nova_categoria.php">New Category</a>
+                        <a href="nova_categoria.php">Create a new category</a>
                     </li>
                     <li>
                         <a href="consultar_categoria.php">Search / Change</a>
@@ -37,7 +37,7 @@ if(isset($_GET['close']) && $_GET['close']==1){
                 <a href="#"><i class="fa fa-building fa-3x"></i>Company<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="nova_empresa.php">New Company</a>
+                        <a href="nova_empresa.php">Create a new company</a>
                     </li>
                     <li>
                         <a href="consultar_empresa.php">Search / Change</a>
@@ -46,10 +46,10 @@ if(isset($_GET['close']) && $_GET['close']==1){
             </li>
             <!-- CONTA -->
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-3x"></i>Account<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-3x"></i>Bank Account<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="nova_conta.php">New Account</a>
+                        <a href="nova_conta.php">Create a new account</a>
                     </li>
                     <li>
                         <a href="consultar_conta.php">Search / Change</a>
