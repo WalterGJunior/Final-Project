@@ -78,7 +78,7 @@ include_once '_head.php';
                     <div class="form-group">
                         <label>Nome da Categoria</label>
                         <input class="form-control" placeholder="Digite o nome da categoria. Exemplo: Conta de Luz" 
-                               name="nome" id="nomecategoria" value="<?= $dados[0]['category_name']?>"  />
+                               name="nome" id="nomecategoria" value="<?= $dados[0]['category_name']?>"  maxlength="35" />
                     </div>
                     <button type="submit" onclick="return ValidarCategoria()" class="btn btn-success" 
                             name="btn_salvar">Salvar</button>

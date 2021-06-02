@@ -54,7 +54,7 @@ class EmpresaDAO extends Conexao{
                             telephone_number,
                             company_address
                         from tb_company
-                        where fk_id_user = ?';
+                        where fk_id_user = ? order by company_name ASC';
         
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();

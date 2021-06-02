@@ -197,6 +197,58 @@ class MovimentoDAO extends Conexao{
 
     }
 
+    public function ShowLatestTransactions(){
+
+        //Step 1: Creting the variable that will recieve the object to the connection with the DB 
+        $connection = parent::retornarConexao();
+
+        //Step 2: variable that will receive the SQL command to insert the information in the database
+        $sql_command = 'select id_transactions,
+                               tb_transactions.fk_id_account, 
+                               transaction_type, 
+                               transactions_date,
+                               transactions_amount,
+                               category_name,
+                               company_name,
+                               bank_name,
+                               account_number,
+                               branch_number,
+                               transaction_comments
+                        from tb_transactions
+                        inner join tb_category
+                            on tb_category.id_category = tb_transactions.fk_id_category
+                        inner join tb_company
+                            on tb_company.id_company = tb_transactions.fk_id_company
+                        inner join tb_account
+                            on tb_account.id_account = tb_transactions.fk_id_account    
+                        where tb_transactions.fk_id_user = ?
+                            order by tb_transactions.id_transactions DESC limit 10';
+
+                       
+        
+        //Step 3: Creating a object to send the information to the database
+        $sql = new PDOStatement();
+
+        //Step 4: To put inside the object $sql the connection prepared to execute the SQL command 
+        $sql = $connection->prepare($sql_command); 
+
+        //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+
+
+        //Step 7: Remove the Index from the Array. 
+        //return each row as an array indexed by column name 
+        //as returned in the corresponding result set.
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        //Step 6:  Execute in the database 
+        $sql->execute();
+
+        return  $sql->fetchAll();
+
+
+    }
+
     public function TotalEarnings(){
 
         $connection = parent::retornarConexao();

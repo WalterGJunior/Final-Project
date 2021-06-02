@@ -58,7 +58,7 @@ class ContaDAO extends Conexao{
                             account_number,
                             available_founds
                         from tb_account
-                        where fk_id_user = ?';
+                        where fk_id_user = ? order by bank_name ASC';
         
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();

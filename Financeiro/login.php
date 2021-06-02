@@ -29,9 +29,9 @@ if (isset($_POST['btn_acessar'])) {
             <?php include_once '_msg.php'; ?>
 
                 <br />  
-                <h2 > Controle Financeiro : Acesso </h2>
+                <h2 > Financial Control : Login </h2>
 
-                <h5>( Faça seu Login )</h5>
+                <h5> Here you can access the application </h5>
                 <br />
             </div>
         </div>
@@ -40,7 +40,7 @@ if (isset($_POST['btn_acessar'])) {
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong > Entre com os seus dados </strong>
+                        <strong > Please, enter with your Username and Password  </strong>
                     </div>
                     <div class="panel-body">
                         <form action="login.php" method="POST">
@@ -54,9 +54,9 @@ if (isset($_POST['btn_acessar'])) {
                                 <input type="password" class="form-control" placeholder="Your Password" name="senha"/>
                             </div>
                            
-                            <button class="btn btn-primary " name="btn_acessar">Acessar</button>
+                            <button class="btn btn-primary " name="btn_acessar">Login</button>
                             <hr />
-                            Caso não tenha cadastro <a href="cadastro.php">clique Aqui </a>
+                            If you still have no access: <a href="cadastro.php">Sign up </a>
                         </form>
                     </div>
 

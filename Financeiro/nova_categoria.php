@@ -35,9 +35,8 @@ include_once '_head.php';
 
                         <?php include_once '_msg.php'; ?>
 
-                        <h2>Nova Categoria</h2>
-                        <h5>Aqui você poderá cadastrar todas as categorias </h5>
-
+                        <h2>New Category</h2>
+                        <h5> Here you can register new categories to be used in your transactions </h5>
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -45,10 +44,10 @@ include_once '_head.php';
 
                 <form action="nova_categoria.php" method="POST">
                     <div class="form-group">
-                        <label>Nome da Categoria</label>
-                        <input class="form-control" placeholder="Digite o nome da categoria" name="nome" id="nomecategoria"/>
+                        <label>Category Name</label>
+                        <input class="form-control" placeholder="Type the category name" name="nome" id="nomecategoria" maxlength="35"/>
                     </div>
-                    <button type="submit" onclick="return ValidarCategoria()" class="btn btn-success" name="btn_gravar">Gravar</button>
+                    <button type="submit" onclick="return ValidarCategoria()" class="btn btn-success" name="btn_gravar">Salve</button>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->

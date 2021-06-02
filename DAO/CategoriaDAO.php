@@ -89,7 +89,7 @@ class CategoriaDAO extends Conexao{
         $sql_command = 'select id_category, 
                             category_name
                         from tb_category
-                        where fk_id_user = ?';
+                        where fk_id_user = ?  order by category_name ASC';
         
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();

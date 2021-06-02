@@ -17,60 +17,60 @@ if(isset($_GET['close']) && $_GET['close']==1){
             </li>
 
             <li>
-                <a href="meus_dados.php"><i class="fa fa-user fa-3x"></i> Meus Dados</a>
+                <a href="meus_dados.php"><i class="fa fa-user fa-3x"></i> My Details</a>
             </li>
 
             <!-- CATEGORIA -->
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-3x"></i> Categoria<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-sitemap fa-3x"></i> Category<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="nova_categoria.php">Nova Categoria</a>
+                        <a href="nova_categoria.php">New Category</a>
                     </li>
                     <li>
-                        <a href="consultar_categoria.php">Consultar / Alterar</a>
+                        <a href="consultar_categoria.php">Search / Change</a>
                     </li>
                 </ul>
             </li>
             <!-- EMPRESA -->
             <li>
-                <a href="#"><i class="fa fa-building fa-3x"></i>Empresa<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-building fa-3x"></i>Company<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="nova_empresa.php">Nova Empresa</a>
+                        <a href="nova_empresa.php">New Company</a>
                     </li>
                     <li>
-                        <a href="consultar_empresa.php">Consultar / Alterar</a>
+                        <a href="consultar_empresa.php">Search / Change</a>
                     </li>
                 </ul>
             </li>
             <!-- CONTA -->
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-3x"></i>Conta<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-3x"></i>Account<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="nova_conta.php">Nova Conta</a>
+                        <a href="nova_conta.php">New Account</a>
                     </li>
                     <li>
-                        <a href="consultar_conta.php">Consultar / Alterar</a>
+                        <a href="consultar_conta.php">Search / Change</a>
                     </li>
                 </ul>
             </li>
             <!-- MOVIMENTO -->
             <li>
-                <a href="#"><i class="fa fa-signal fa-3x"></i> Movimento<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-signal fa-3x"></i> Transactions<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="realizar_movimento.php">Realizar Movimento</a>
+                        <a href="realizar_movimento.php">Make a new transaction</a>
                     </li>
                     <li>
-                        <a href="consultar_movimento.php">Consultar Movimento</a>
+                        <a href="consultar_movimento.php">Search for a transaction</a>
                     </li>
                 </ul>
             </li>
 
             <li>
-                <a class="active-menu" href="_navbar.php?close=1">Sair</a>
+                <a class="active-menu" href="_navbar.php?close=1">Sign out</a>
             </li>
         </ul>
 

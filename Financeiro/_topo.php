@@ -13,10 +13,10 @@ require_once '../DAO/UtilDAO.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Financeiro</a>
+        <a class="navbar-brand" href="index.html">Finance</a>
     </div>
     <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">Hello, <?= UtilDAO::UserLoggedIn() ?> Dúvidas Ligue para: (00) 999999-0000</div>
+font-size: 16px;">Hello, <?= UtilDAO::UserLoggedIn() ?> - Contact us: +353 (83) 393 2198</div>
 </nav>
