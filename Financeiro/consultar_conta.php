@@ -30,8 +30,8 @@ include_once '_head.php';
                 <div class="row">
                     <div class="col-md-12">
                         <?php include_once '_msg.php'?>
-                        <h2>Consultar Contas</h2>
-                        <h5>Consulte todas as contas aqui </h5>
+                        <h2>Search for your Bank Account</h2>
+                        <h5>Here you can find all your registered accounts </h5>
 
                     </div>
                 </div>
@@ -40,18 +40,18 @@ include_once '_head.php';
 
                 <div class="panel panel-default">
                         <div class="panel-heading">
-                             Contas Cadastradas. Caso deseje alterar, clique no botão. 
+                        List of all registered bank accounts. In case you want to change any, click on the button.. 
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Banco</th>
-                                            <th>Agência</th>
-                                            <th>Número da Conta</th>
-                                            <th>Saldo</th>
-                                            <th>Ação</th>
+                                            <th>Bank Name</th>
+                                            <th>Branch number</th>
+                                            <th>Account Number</th>
+                                            <th>Available Funds</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>

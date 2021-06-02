@@ -53,8 +53,8 @@ include_once '_head.php';
                     <input class="form-control" placeholder="Type the Bank name..." name="banco" id="banco"/>
                 </div>
                 <div class="form-group">
-                    <label>Branch Name*:</label>
-                    <input class="form-control" placeholder="Type the Branch name..." name="agencia" id="agencia"/>
+                    <label>Branch number*:</label>
+                    <input class="form-control" placeholder="Type the Branch number..." name="agencia" id="agencia"/>
                 </div>
                 <div class="form-group">
                     <label>Account Number*:</label>
