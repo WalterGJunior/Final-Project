@@ -46,7 +46,7 @@ include_once '_head.php';
                         <div class="panel panel-primary text-center no-boder bg-color-green">
                             <div class="panel-body">
                                 <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>€ <?= $total_earnings[0]['total']?>  </h3>
+                                <h3>€ <?= $total_earnings[0]['total'] != '' ? number_format($total_earnings[0]['total'], 2, ',', '.') : 0 ?>  </h3>
                             </div>
                             <div class="panel-footer back-footer-green">
                                 Total de Entradas
@@ -58,7 +58,7 @@ include_once '_head.php';
                         <div class="panel panel-primary text-center no-boder bg-color-red">
                             <div class="panel-body">
                                 <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>200 </h3>
+                                <h3>€ <?= $total_expenses[0]['total'] != '' ? number_format($total_expenses[0]['total'], 2, ',', '.') : 0 ?> </h3>
                             </div>
                             <div class="panel-footer back-footer-red">
                                 Total de Saídas

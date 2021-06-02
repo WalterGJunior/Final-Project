@@ -198,12 +198,12 @@ class MovimentoDAO extends Conexao{
     }
 
     public function TotalEarnings(){
-        
+
         $connection = parent::retornarConexao();
         $sql_command = 'select sum(transactions_amount) as total
-                        from tb_transactions
-                        where transaction_type = 1,
-                        and fk_id_user = ?';
+                            from tb_transactions
+                        where transaction_type = 1
+                            and fk_id_user = ?';
 
         $sql = new PDOStatement();
 
@@ -222,7 +222,7 @@ class MovimentoDAO extends Conexao{
 
         $sql_command = 'select sum(transactions_amount) as total
                         from tb_transactions
-                        where transaction_type = 2,
+                        where transaction_type = 2
                         and fk_id_user = ?';
 
         $sql = new PDOStatement();
