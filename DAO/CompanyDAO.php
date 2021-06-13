@@ -3,7 +3,7 @@
 require_once 'Conexao.php';
 require_once 'UtilDAO.php';
 
-class EmpresaDAO extends Conexao{
+class CompanyDAO extends Conexao{
 
     public function CadastrarEmpresa($nome, $telefone, $endereco){
         if(trim($nome) == ''){            

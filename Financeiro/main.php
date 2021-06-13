@@ -3,10 +3,10 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/MovimentoDAO.php';
+require_once '../DAO/TransactionDAO.php';
 
 
-$dao = new MovimentoDAO();
+$dao = new TransactionDAO();
 
 $total_earnings = $dao->TotalEarnings();
 $total_expenses = $dao->TotalExpenses();

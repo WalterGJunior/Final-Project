@@ -2,7 +2,7 @@
 require_once 'Conexao.php';
 require_once 'UtilDAO.php';
 
-class MovimentoDAO extends Conexao{
+class TransactionDAO extends Conexao{
 
     public function RealizarMovimento($tipo, $data, $valor, $categoria, $empresa, $conta, $obs){
 

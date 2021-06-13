@@ -9,7 +9,7 @@ if (isset($_POST['btn_gravar'])) {
     $telefone = $_POST['telefone'];
     $endereco = $_POST['endereco'];
 
-    $objDao = new EmpresaDAO();
+    $objDao = new CompanyDAO();
 
     $ret = $objDao->CadastrarEmpresa($empresa, $telefone, $endereco);
 }

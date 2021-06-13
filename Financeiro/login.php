@@ -1,12 +1,12 @@
 <?php
 
-require_once '../DAO/UsuarioDAO.php';
+require_once '../DAO/UserDAO.php';
 
 if (isset($_POST['btn_acessar'])) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $objDao = new UsuarioDAO();
+    $objDao = new UserDAO();
 
     $ret = $objDao->ValidarLogin($email, $senha);
 }

@@ -4,7 +4,7 @@ UtilDAO::VerifySession();
 
 require_once '../DAO/CategoryDAO.php';
 
-$objDao = new CategoriaDAO();
+$objDao = new CategoryDAO();
 
 if (isset($_GET['cod']) && is_numeric($_GET['cod'])){
     

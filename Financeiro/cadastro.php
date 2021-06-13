@@ -1,6 +1,6 @@
 <?php
 
-require_once '../DAO/UsuarioDAO.php';
+require_once '../DAO/UserDAO.php';
 
 if (isset($_POST['btn_finalizar'])) {
     $nome = $_POST['nome'];
@@ -8,7 +8,7 @@ if (isset($_POST['btn_finalizar'])) {
     $senha = $_POST['senha'];
     $rsenha = $_POST['rsenha'];
 
-    $objDao = new UsuarioDAO();
+    $objDao = new UserDAO();
 
     $ret = $objDao->CriarCadastro($nome, $email, $senha, $rsenha);
 }

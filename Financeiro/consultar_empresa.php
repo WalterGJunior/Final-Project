@@ -2,9 +2,9 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/EmpresaDAO.php';
+require_once '../DAO/CompanyDAO.php';
 
-$objDao = new EmpresaDAO();
+$objDao = new CompanyDAO();
 $companies = $objDao->SearchCompany();
 
 ?>

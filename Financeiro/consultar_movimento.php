@@ -3,7 +3,7 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/MovimentoDAO.php';
+require_once '../DAO/TransactionDAO.php';
 
 $initial_date = '';
 $final_date = '';
@@ -14,7 +14,7 @@ if (isset($_POST['btn_search'])) {
     $initial_date = $_POST['initial_date'];
     $final_date = $_POST['final_date'];
 
-    $objDao = new MovimentoDAO();
+    $objDao = new TransactionDAO();
 
     $transaction = $objDao->SearchTransaction($type, $initial_date, $final_date);
 
@@ -25,7 +25,7 @@ if (isset($_POST['btn_search'])) {
     $amount = $_POST['amount'];
     $type = $_POST['type'];
 
-    $objDao = new MovimentoDAO();
+    $objDao = new TransactionDAO();
 
     $ret = $objDao->DeleteTransaction($id_transaction, $id_account, $amount, $type);
 

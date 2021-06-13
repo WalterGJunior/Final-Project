@@ -2,9 +2,9 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/EmpresaDAO.php';
+require_once '../DAO/CompanyDAO.php';
 
-$objDao = new EmpresaDAO();
+$objDao = new CompanyDAO();
 
 if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
 
@@ -22,7 +22,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
     $telephoneCompany = $_POST['telefone'];
     $companyAddress = $_POST['endereco'];
 
-    $objDao = new EmpresaDAO();
+    $objDao = new CompanyDAO();
 
     $ret = $objDao->AlterCompany($idEmpresa, $companyName, $telephoneCompany, $companyAddress);
 

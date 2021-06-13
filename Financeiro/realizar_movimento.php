@@ -3,13 +3,13 @@ require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
 
-require_once '../DAO/MovimentoDAO.php';
+require_once '../DAO/TransactionDAO.php';
 require_once '../DAO/AccountDAO.php';
-require_once '../DAO/EmpresaDAO.php';
+require_once '../DAO/CompanyDAO.php';
 require_once '../DAO/CategoryDAO.php';
 
 $dao_category = new CategoryDAO();
-$dao_company = new EmpresaDAO();
+$dao_company = new CompanyDAO();
 $dao_account = new AccountDAO();
 
 if (isset($_POST['btn_gravar'])) {
@@ -21,7 +21,7 @@ if (isset($_POST['btn_gravar'])) {
     $conta = $_POST['conta'];
     $obs = $_POST['obs'];
 
-    $objDao = new MovimentoDAO();
+    $objDao = new TransactionDAO();
 
     $ret = $objDao->RealizarMovimento($tipo, $data, $valor, $categoria, $empresa, $conta, $obs);
 }
