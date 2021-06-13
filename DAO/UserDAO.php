@@ -3,7 +3,7 @@
 require_once 'Conexao.php';
 require_once 'UtilDAO.php';
 
-class UserDAO extends Conexao{
+class UserDAO extends Connection{
 
     public function CarregarMeusDados(){
 

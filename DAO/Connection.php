@@ -12,12 +12,12 @@ define('DB', 'db_financialcontrol'); //Banco
  * @copyright (c) year, WMBarros
  */
 
-class Conexao {
+class Connection {
 
     /** @var PDO */
     private static $Connect;
 
-    private static function Conectar() {
+    private static function Connect() {
         try {
 
             //Verifica se a conexão não existe
@@ -37,7 +37,7 @@ class Conexao {
     }
 
     public static function retornarConexao() {
-        return  self::Conectar();
+        return  self::Connect();
     }
     
     

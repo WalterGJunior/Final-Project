@@ -3,7 +3,7 @@
 require_once 'Conexao.php';
 require_once 'UtilDAO.php';
 
-class CategoryDAO extends Conexao{
+class CategoryDAO extends Connection{
 
     public function CadastrarCategoria($nome){
 
