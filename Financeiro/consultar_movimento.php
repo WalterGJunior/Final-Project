@@ -58,9 +58,9 @@ include_once '_head.php';
                     
                     <?php include_once '_msg.php'; ?>
 
-                        <h2>Consultar Movimento</h2>
-                        <h5>Consulte todos as movimentos em um determinado período </h5>
-
+                        <h2>Search for your Transaction</h2>
+                        <h5>Here you can find all registered transactions in a given period </h5>
+                        
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -69,29 +69,29 @@ include_once '_head.php';
                 <form method="POST" action="consultar_movimento.php">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Tipo do Movimento:</label>
+                            <label>Transaction Type:</label>
                             <select class="form-control" name="type">
-                                <option value="0" <?= $type == '0' ? 'selected' : '' ?>>TODOS</option>
-                                <option value="1" <?= $type == '1' ? 'selected' : '' ?>>Entrada</option>
-                                <option value="2" <?= $type == '2' ? 'selected' : '' ?>>Saídas</option>
+                                <option value="0" <?= $type == '0' ? 'selected' : '' ?>>All</option>
+                                <option value="1" <?= $type == '1' ? 'selected' : '' ?>>Cash Inflow</option>
+                                <option value="2" <?= $type == '2' ? 'selected' : '' ?>>Cash Outflow</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Data Inicial*</label>
-                            <input type="date" class="form-control" placeholder="Coloque a data do movimento" id="dataInicial" name="initial_date" value="<?= $initial_date ?>" />
+                            <label>Initial Date*</label>
+                            <input type="date" class="form-control" id="dataInicial" name="initial_date" value="<?= $initial_date ?>" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Data Final*</label>
-                            <input type="date" class="form-control" placeholder="Coloque a data do movimento" id="dataFinal" name="final_date" value="<?= $final_date ?>" />
+                            <label>Final Date*</label>
+                            <input type="date" class="form-control" id="dataFinal" name="final_date" value="<?= $final_date ?>" />
                         </div>
                     </div>
 
                     <center>
-                        <button class="btn btn-info" onclick="return ValidarConsultarMovimento()" name="btn_search"> Pesquisar </button>
+                        <button class="btn btn-info" onclick="return ValidarConsultarMovimento()" name="btn_search"> Search </button>
                     </center>
                 </form>
                 <hr />

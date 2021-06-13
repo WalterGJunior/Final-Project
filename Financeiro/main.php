@@ -50,7 +50,7 @@ include_once '_head.php';
                             <h3>€ <?= $total_earnings[0]['total'] != '' ? number_format($total_earnings[0]['total'], 2, ',', '.') : 0 ?> </h3>
                         </div>
                         <div class="panel-footer back-footer-green">
-                            Total de Entradas
+                            Total Cash Inflow
 
                         </div>
                     </div>
@@ -62,7 +62,7 @@ include_once '_head.php';
                             <h3>€ <?= $total_expenses[0]['total'] != '' ? number_format($total_expenses[0]['total'], 2, ',', '.') : 0 ?> </h3>
                         </div>
                         <div class="panel-footer back-footer-red">
-                            Total de Saídas
+                            Total Cash Outflow
 
                         </div>
                     </div>
@@ -82,13 +82,13 @@ include_once '_head.php';
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
                                                 <tr>
-                                                    <th>Data</th>
-                                                    <th>Tipo</th>
-                                                    <th>Categoria</th>
-                                                    <th>Empresa</th>
-                                                    <th>Conta</th>
-                                                    <th>Valor</th>
-                                                    <th>Observação</th>
+                                                    <th>Date</th>
+                                                    <th>Type</th>
+                                                    <th>Category</th>
+                                                    <th>Company</th>
+                                                    <th>Account</th>
+                                                    <th>Ammount</th>
+                                                    <th>Comments</th>
 
                                                 </tr>
                                             </thead>

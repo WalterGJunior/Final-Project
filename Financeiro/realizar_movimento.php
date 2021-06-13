@@ -4,13 +4,13 @@ UtilDAO::VerifySession();
 
 
 require_once '../DAO/MovimentoDAO.php';
-require_once '../DAO/ContaDAO.php';
+require_once '../DAO/AccountDAO.php';
 require_once '../DAO/EmpresaDAO.php';
-require_once '../DAO/CategoriaDAO.php';
+require_once '../DAO/CategoryDAO.php';
 
-$dao_category = new CategoriaDAO();
+$dao_category = new CategoryDAO();
 $dao_company = new EmpresaDAO();
-$dao_account = new ContaDAO();
+$dao_account = new AccountDAO();
 
 if (isset($_POST['btn_gravar'])) {
     $tipo = $_POST['tipo'];
@@ -55,9 +55,8 @@ include_once '_head.php';
 
                     <?php include_once '_msg.php'; ?>
 
-                        <h2>Realizar Movimento</h2>
-                        <h5>Aqui você pode realizar todos movimentos de Entradas e Saídas. </h5>
-
+                        <h2>Make a new Transaction</h2>
+                        <h5> Here you can make new transactions regards all your cash inflow and outflow. </h5>
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -66,28 +65,28 @@ include_once '_head.php';
                 <form action="realizar_movimento.php" method="POST">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Tipo:</label>
+                            <label>Type:</label>
                             <select class="form-control" name="tipo" id="tipo">
-                                <option value="">Selecione</option>
-                                <option value="1">Entrada</option>
-                                <option value="2">Saídas</option>
+                                <option value="">Select</option>
+                                <option value="1">Earnings</option>
+                                <option value="2">Expenses</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Data*</label>
-                            <input type="date" name="data" class="form-control" placeholder="Coloque a data do movimento" id="data"/>
+                            <label>Date*</label>
+                            <input type="date" name="data" class="form-control" id="data"/>
                         </div>
                         <div class="form-group">
-                            <label>Valor:</label>
-                            <input class="form-control" name="valor" placeholder="Digite o valor do movimento" id="valor"/>
+                            <label>Ammount:</label>
+                            <input class="form-control" name="valor" placeholder="Type the ammount transaction" id="valor"/>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Categoria:</label>
+                            <label>Category:</label>
                             <select class="form-control" name="categoria" id="data">
-                                <option value="">Selecione</option>
+                                <option value="">Select</option>
                                 <?php foreach($categories as $item){?>
                                     <option value="<?= $item['id_category']?>">
                                         <?= $item['category_name']?>
@@ -96,9 +95,9 @@ include_once '_head.php';
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Empresa:</label>
+                            <label>Company:</label>
                             <select class="form-control" name="empresa" id="empresa">
-                                <option value="">Selecione</option>
+                                <option value="">Select</option>
                                 <?php foreach($companies as $item){?>
                                     <option value="<?= $item['id_company']?>">
                                         <?= $item['company_name']?>
@@ -107,12 +106,12 @@ include_once '_head.php';
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Conta:</label>
+                            <label>Account:</label>
                             <select class="form-control" name="conta" id="conta">
-                                <option value="">Selecione</option>
+                                <option value="">Select</option>
                                 <?php foreach($accounts as $item){?>
                                     <option value="<?= $item['id_account']?>">
-                                        <?= 'Bank Name: ' . $item['bank_name'] . ', Branch Number: ' . $item['branch_number'] . ' / ' . $item['account_number'] . ', Available Founds: ' . $item['available_founds']?>
+                                        <?= 'Bank Name: ' . $item['bank_name'] . ', Branch Number: ' . $item['branch_number'] . ' / ' . $item['account_number'] . ', Available Funds: ' . $item['available_founds']?>
                                     </option>
                                 <?php }?>
                             </select>
@@ -121,7 +120,7 @@ include_once '_head.php';
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Observação(Opcional)</label>
+                            <label>Comments (Optional)</label>
                             <textarea class="form-control" rows="3" name="obs"></textarea>
                         </div>
                         <button type="submit" onclick="return ValidarMovimento()" class="btn btn-success" name="btn_gravar">Gravar</button>

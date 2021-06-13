@@ -2,7 +2,7 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/CategoriaDAO.php';
+require_once '../DAO/CategoryDAO.php';
 
 $objDao = new CategoriaDAO();
 

@@ -2,7 +2,7 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/ContaDAO.php';
+require_once '../DAO/AccountDAO.php';
 
 if (isset($_POST['btn_gravar'])) {
     $banco = $_POST['banco'];
@@ -10,7 +10,7 @@ if (isset($_POST['btn_gravar'])) {
     $conta = $_POST['conta'];
     $saldo = $_POST['saldo'];
 
-    $objDao = new ContaDAO();
+    $objDao = new AccountDAO();
 
     $ret = $objDao->CadastrarConta($banco, $agencia, $conta, $saldo);
 }

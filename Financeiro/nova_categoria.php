@@ -2,12 +2,12 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/CategoriaDAO.php';
+require_once '../DAO/CategoryDAO.php';
 
 if (isset($_POST['btn_gravar'])) {
     $nome = $_POST['nome'];
 
-    $objDao = new CategoriaDAO();
+    $objDao = new CategoryDAO();
 
     $ret = $objDao->CadastrarCategoria($nome);
 }

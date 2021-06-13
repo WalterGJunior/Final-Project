@@ -2,9 +2,9 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/ContaDAO.php';
+require_once '../DAO/AccountDAO.php';
 
-$objDao = new ContaDAO();
+$objDao = new AccountDAO();
 
 if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
 
@@ -22,7 +22,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
     $conta = $_POST['conta'];
     $saldo = $_POST['saldo'];
 
-    $objDao = new ContaDAO();
+    $objDao = new AccountDAO();
 
     $ret = $objDao->AlterAccount($banco, $agencia, $conta, $saldo);
 

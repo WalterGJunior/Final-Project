@@ -2,9 +2,9 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/ContaDAO.php';
+require_once '../DAO/AccountDAO.php';
 
-$objDao = new ContaDAO();
+$objDao = new AccountDAO();
 $Accounts = $objDao->SearchAccount();
 
 ?>

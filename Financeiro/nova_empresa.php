@@ -2,7 +2,7 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/EmpresaDAO.php';
+require_once '../DAO/CompanyDAO.php';
 
 if (isset($_POST['btn_gravar'])) {
     $empresa = $_POST['empresa'];
