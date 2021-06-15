@@ -2,13 +2,12 @@
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
-require_once '../DAO/AccountDAO.php';
+require_once '../DAO/CompanyDAO.php';
 
-$objDao = new AccountDAO();
-$Accounts = $objDao->SearchAccount();
+$objDao = new CompanyDAO();
+$companies = $objDao->SearchCompany();
 
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -30,8 +29,8 @@ include_once '_head.php';
                 <div class="row">
                     <div class="col-md-12">
                         <?php include_once '_msg.php'?>
-                        <h2>Search for your Bank Account</h2>
-                        <h5>Here you can find all your registered accounts </h5>
+                        <h2>Search for your Companies</h2>
+                        <h5>Here you can find all registered Companies </h5>
 
                     </div>
                 </div>
@@ -40,32 +39,32 @@ include_once '_head.php';
 
                 <div class="panel panel-default">
                         <div class="panel-heading">
-                        List of all registered bank accounts. In case you want to change any, click on the button.. 
+                        List of all registered companies. In case you want to change any, click on the button. 
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Bank Name</th>
-                                            <th>Branch number</th>
-                                            <th>Account Number</th>
-                                            <th>Available Funds</th>
+                                            <th>Company Name</th>
+                                            <th>Phone</th>
+                                            <th>Address</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php for($i = 0; $i<count($Accounts);$i++) { ?>
+
+                                    <?php for($i = 0; $i<count($companies);$i++) { ?>
+
                                         <tr class="odd gradeX">
-                                            <td><?= $Accounts[$i]['bank_name']?></td>
-                                            <td><?= $Accounts[$i]['branch_number']?></td>
-                                            <td><?= $Accounts[$i]['account_number']?></td>
-                                            <td><?= $Accounts[$i]['available_founds']?></td>                                            
+                                            <td><?= $companies[$i]['company_name']?></td>
+                                            <td><?= $companies[$i]['telephone_number']?></td>
+                                            <td><?= $companies[$i]['company_address']?></td>
                                             <td>
-                                                <a href="alterar_conta.php?cod=<?=$Accounts[$i]['id_account']?>" class="btn btn-warning btn-sm">Alterar</a>
+                                                <a href="change_company.php?cod=<?=$companies[$i]['id_company']?>" class="btn btn-warning btn-sm">Change</a>
                                             </td>
                                         </tr> 
-                                    <?php }?>                                          
+                                    <?php }?>                                       
                                     </tbody>
                                 </table>
                             </div>

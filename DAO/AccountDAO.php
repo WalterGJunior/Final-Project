@@ -1,11 +1,11 @@
 <?php
 
-require_once 'Conexao.php';
+require_once 'Connection.php';
 require_once 'UtilDAO.php';
 
-class AccountDAO extends Conexao{
+class AccountDAO extends Connection{
 
-    public function CadastrarConta($banco, $agencia, $conta, $saldo){
+    public function CreateAccount($banco, $agencia, $conta, $saldo){
 
         if(trim($banco) == '' || trim($agencia) == '' || trim($conta) == '' || trim($saldo) == ''){
             return 0;
@@ -31,7 +31,7 @@ class AccountDAO extends Conexao{
         $sql->bindValue(2, $agencia);
         $sql->bindValue(3, $conta);
         $sql->bindValue(4, $saldo);
-        $sql->bindValue(5, UtilDAO::CodigoLogado());
+        $sql->bindValue(5, UtilDAO::UserLoggedIn());
 
         try {
 
@@ -67,7 +67,7 @@ class AccountDAO extends Conexao{
         $sql = $connection->prepare($sql_command); 
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
-        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(1, UtilDAO::UserLoggedIn());
 
         //Step 7: Remove the Index from the Array. 
         //return each row as an array indexed by column name 
@@ -103,7 +103,7 @@ class AccountDAO extends Conexao{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $idAccount);
-        $sql->bindValue(2, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, UtilDAO::UserLoggedIn());
 
         //Step 7: Remove the Index from the Array. 
         //return each row as an array indexed by column name 
@@ -144,7 +144,7 @@ class AccountDAO extends Conexao{
         $sql->bindValue(2, $agencia);
         $sql->bindValue(3, $conta);
         $sql->bindValue(4, $saldo);
-        $sql->bindValue(5, UtilDAO::CodigoLogado());
+        $sql->bindValue(5, UtilDAO::UserLoggedIn());
 
         try {
 
@@ -183,7 +183,7 @@ class AccountDAO extends Conexao{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $idAccount);
-        $sql->bindValue(2, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, UtilDAO::UserLoggedIn());
 
         try {
 

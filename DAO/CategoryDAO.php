@@ -1,11 +1,11 @@
 <?php
 
-require_once 'Conexao.php';
+require_once 'Connection.php';
 require_once 'UtilDAO.php';
 
 class CategoryDAO extends Connection{
 
-    public function CadastrarCategoria($nome){
+    public function CreateCategory($nome){
 
         if(trim($nome) == ''){            
             return 0;
@@ -41,7 +41,7 @@ class CategoryDAO extends Connection{
         }
     }
 
-    public function AlterarCategoria($nome, $idCategoria){
+    public function ChangeCategory($nome, $idCategoria){
         if(trim($nome) == '' || $idCategoria == ''){            
             return 0;
         }
@@ -81,7 +81,7 @@ class CategoryDAO extends Connection{
         return  $sql->fetchAll();
     }
 
-    public function Consultarcategoria(){
+    public function SearchCategory(){
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
         $connection = parent::retornarConexao();
 
@@ -111,7 +111,7 @@ class CategoryDAO extends Connection{
         return  $sql->fetchAll();
     }
 
-    public function DeleteCategoria($idCategoria){
+    public function DeleteCategory($idCategoria){
         if($idCategoria == ''){            
             return 0;
         }
@@ -150,7 +150,7 @@ class CategoryDAO extends Connection{
         return  $sql->fetchAll();
     }
   
-    public function detalharCategoria($idCategoria){
+    public function CategoriesDetails($idCategoria){
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
         $connection = parent::retornarConexao();

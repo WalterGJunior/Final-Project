@@ -23,10 +23,10 @@ if (isset($_POST['btn_gravar'])) {
 
     $objDao = new TransactionDAO();
 
-    $ret = $objDao->RealizarMovimento($tipo, $data, $valor, $categoria, $empresa, $conta, $obs);
+    $ret = $objDao->CreateTransaction($tipo, $data, $valor, $categoria, $empresa, $conta, $obs);
 }
 
-$categories = $dao_category ->Consultarcategoria();
+$categories = $dao_category ->SearchCategory();
 $companies = $dao_company -> SearchCompany();
 $accounts = $dao_account -> SearchAccount();
 

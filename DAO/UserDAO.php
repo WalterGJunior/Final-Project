@@ -1,11 +1,11 @@
 <?php
 
-require_once 'Conexao.php';
+require_once 'Connection.php';
 require_once 'UtilDAO.php';
 
 class UserDAO extends Connection{
 
-    public function CarregarMeusDados(){
+    public function ShowMyDetails(){
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
         $connection = parent::retornarConexao();
@@ -23,7 +23,7 @@ class UserDAO extends Connection{
         $sql = $connection->prepare($sql_command); 
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
-        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(1, UtilDAO::UserLoggedIn());
 
         //Step 7: Remove the Index from the Array. 
         //return each row as an array indexed by column name 
@@ -38,7 +38,7 @@ class UserDAO extends Connection{
         
     }
 
-    public function GravarMeusDados($name, $email){
+    public function SaveMyDetails($name, $email){
 
         if(trim($name) == '' || trim($email) == ''){
             return 0;
@@ -62,7 +62,7 @@ class UserDAO extends Connection{
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $name);
         $sql->bindValue(2, $email);
-        $sql->bindValue(3, UtilDAO::CodigoLogado());
+        $sql->bindValue(3, UtilDAO::UserLoggedIn());
 
         try {
  
@@ -78,7 +78,7 @@ class UserDAO extends Connection{
 
     }
 
-    public function ValidarLogin($email, $senha){
+    public function ValidateLogin($email, $senha){
         if(trim($email) == '' || trim($senha) == ''){
             return 0;
         }
@@ -150,7 +150,7 @@ class UserDAO extends Connection{
         $sql = $connection->prepare($sql_command);
 
         $sql->bindValue(1, $email);
-        $sql->bindValue(2,UtilDAO::CodigoLogado());
+        $sql->bindValue(2,UtilDAO::UserLoggedIn());
 
         $sql->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -161,7 +161,7 @@ class UserDAO extends Connection{
         return $result[0]['result'];
     }
 
-    public function CriarCadastro($nome, $email, $senha, $rsenha){
+    public function CreateNewUser($nome, $email, $senha, $rsenha){
         if(trim($nome) == '' || trim($email) == '' || trim($senha) == '' || trim($rsenha) == ''){
             return 0;
         }

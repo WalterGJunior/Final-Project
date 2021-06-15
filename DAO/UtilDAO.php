@@ -17,7 +17,7 @@ class UtilDAO{
 
         }
 
-        public static function CodigoLogado(){
+        public static function CodeUserLogged(){
             self::StartSession();
             return $_SESSION['cod'];      
         }

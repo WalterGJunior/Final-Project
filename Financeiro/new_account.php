@@ -12,7 +12,7 @@ if (isset($_POST['btn_gravar'])) {
 
     $objDao = new AccountDAO();
 
-    $ret = $objDao->CadastrarConta($banco, $agencia, $conta, $saldo);
+    $ret = $objDao->CreateAccount($banco, $agencia, $conta, $saldo);
 }
 
 ?>

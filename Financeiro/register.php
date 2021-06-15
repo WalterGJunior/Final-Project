@@ -10,7 +10,7 @@ if (isset($_POST['btn_finalizar'])) {
 
     $objDao = new UserDAO();
 
-    $ret = $objDao->CriarCadastro($nome, $email, $senha, $rsenha);
+    $ret = $objDao->CreateNewUser($nome, $email, $senha, $rsenha);
 }
 
 ?>

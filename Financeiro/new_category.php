@@ -9,7 +9,7 @@ if (isset($_POST['btn_gravar'])) {
 
     $objDao = new CategoryDAO();
 
-    $ret = $objDao->CadastrarCategoria($nome);
+    $ret = $objDao->CreateCategory($nome);
 }
 ?>
 <!DOCTYPE html>

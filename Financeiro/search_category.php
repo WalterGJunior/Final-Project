@@ -5,7 +5,7 @@ UtilDAO::VerifySession();
 require_once '../DAO/CategoryDAO.php';
 
 $dao = new CategoryDAO();
-$categories = $dao->Consultarcategoria();
+$categories = $dao->SearchCategory();
 
 //echo '<pre>';
 //print_r($categories);
@@ -59,7 +59,7 @@ include_once '_head.php';
                                         <tr class="odd gradeX">
                                             <td><?= $item['category_name'] ?></td>
                                             <td>
-                                                <a href="alterar_categoria.php?cod=<?= $item['id_category'] ?>" class="btn btn-warning btn-sm">Change</a>
+                                                <a href="change_category.php?cod=<?= $item['id_category'] ?>" class="btn btn-warning btn-sm">Change</a>
                                             </td>
                                         </tr>
                                     <?php } ?>

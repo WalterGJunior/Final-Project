@@ -1,11 +1,11 @@
 <?php
 
-require_once 'Conexao.php';
+require_once 'Connection.php';
 require_once 'UtilDAO.php';
 
-class CompanyDAO extends Conexao{
+class CompanyDAO extends Connection{
 
-    public function CadastrarEmpresa($nome, $telefone, $endereco){
+    public function CreateCompany($nome, $telefone, $endereco){
         if(trim($nome) == ''){            
             return 0;
         }
@@ -29,7 +29,7 @@ class CompanyDAO extends Conexao{
         $sql->bindValue(1, $nome);
         $sql->bindValue(2, $telefone);
         $sql->bindValue(3, $endereco);
-        $sql->bindValue(4, UtilDAO::CodigoLogado());
+        $sql->bindValue(4, UtilDAO::UserLoggedIn());
 
         try {
 
@@ -63,7 +63,7 @@ class CompanyDAO extends Conexao{
         $sql = $connection->prepare($sql_command); 
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
-        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(1, UtilDAO::UserLoggedIn());
 
         //Step 7: Remove the Index from the Array. 
         //return each row as an array indexed by column name 
@@ -98,7 +98,7 @@ class CompanyDAO extends Conexao{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $idEmpresa);
-        $sql->bindValue(2, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, UtilDAO::UserLoggedIn());
 
         //Step 7: Remove the Index from the Array. 
         //return each row as an array indexed by column name 
@@ -111,7 +111,7 @@ class CompanyDAO extends Conexao{
         return  $sql->fetchAll();
     }
 
-    public function AlterCompany($idEmpresa, $companyName, $telephoneCompany, $companyAddress ){
+    public function ChangeCompany($idEmpresa, $companyName, $telephoneCompany, $companyAddress ){
         if(trim($companyName) == '' || $idEmpresa == ''){            
             return 0;
         }
@@ -138,7 +138,7 @@ class CompanyDAO extends Conexao{
         $sql->bindValue(2, $telephoneCompany);
         $sql->bindValue(3, $companyAddress);
         $sql->bindValue(4, $idEmpresa);
-        $sql->bindValue(5, UtilDAO::CodigoLogado());
+        $sql->bindValue(5, UtilDAO::UserLoggedIn());
 
         try {
 
@@ -177,7 +177,7 @@ class CompanyDAO extends Conexao{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $idEmpresa);
-        $sql->bindValue(2, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, UtilDAO::UserLoggedIn());
 
         try {
 

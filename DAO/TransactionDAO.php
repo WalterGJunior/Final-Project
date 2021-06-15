@@ -1,10 +1,10 @@
 <?php
-require_once 'Conexao.php';
+require_once 'Connection.php';
 require_once 'UtilDAO.php';
 
 class TransactionDAO extends Connection{
 
-    public function RealizarMovimento($tipo, $data, $valor, $categoria, $empresa, $conta, $obs){
+    public function CreateTransaction($tipo, $data, $valor, $categoria, $empresa, $conta, $obs){
 
         if($tipo == '' || trim($data) == '' || trim($valor) == '' || $categoria == '' || $empresa == '' || $conta == '' ){
             return 0;   
@@ -33,7 +33,7 @@ class TransactionDAO extends Connection{
         $sql->bindValue(5, $categoria);
         $sql->bindValue(6, $empresa);
         $sql->bindValue(7, $conta);
-        $sql->bindValue(8, UtilDAO::CodigoLogado());
+        $sql->bindValue(8, UtilDAO::UserLoggedIn());
 
         $connection->beginTransaction();
 
@@ -176,7 +176,7 @@ class TransactionDAO extends Connection{
         $sql = $connection->prepare($sql_command); 
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
-        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(1, UtilDAO::UserLoggedIn());
         $sql->bindValue(2, $initial_date);
         $sql->bindValue(3, $final_date);
 
@@ -233,7 +233,7 @@ class TransactionDAO extends Connection{
         $sql = $connection->prepare($sql_command); 
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
-        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(1, UtilDAO::UserLoggedIn());
 
 
         //Step 7: Remove the Index from the Array. 
@@ -261,7 +261,7 @@ class TransactionDAO extends Connection{
 
         $sql = $connection->prepare($sql_command);
 
-        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(1, UtilDAO::UserLoggedIn());
         $sql->setFetchMode(PDO::FETCH_ASSOC);
 
         $sql->execute();
@@ -281,7 +281,7 @@ class TransactionDAO extends Connection{
 
         $sql = $connection->prepare($sql_command);
 
-        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(1, UtilDAO::UserLoggedIn());
         $sql->setFetchMode(PDO::FETCH_ASSOC);
 
         $sql->execute();

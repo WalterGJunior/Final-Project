@@ -24,7 +24,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
 
     $objDao = new CompanyDAO();
 
-    $ret = $objDao->AlterCompany($idEmpresa, $companyName, $telephoneCompany, $companyAddress);
+    $ret = $objDao->ChangeCompany($idEmpresa, $companyName, $telephoneCompany, $companyAddress);
 
     header('location: consultar_empresa.php?ret=' . $ret);
     exit;

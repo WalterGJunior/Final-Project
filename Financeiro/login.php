@@ -56,7 +56,7 @@ if (isset($_POST['btn_acessar'])) {
                            
                             <button class="btn btn-primary " name="btn_acessar">Login</button>
                             <hr />
-                            If you still have no access: <a href="cadastro.php">Sign up </a>
+                            If you still have no access: <a href="register.php">Sign up </a>
                         </form>
                     </div>
 

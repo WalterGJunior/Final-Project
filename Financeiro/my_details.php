@@ -12,10 +12,10 @@ if (isset($_POST['btn_gravar'])) {
     $email = $_POST['email'];
    
 
-    $ret = $objDao->GravarMeusDados($nome, $email);
+    $ret = $objDao->SaveMyDetails($nome, $email);
 }
 
-$data = $objDao->CarregarMeusDados();
+$data = $objDao->ShowMyDetails();
 
 //echo '<pre>';
 //print_r($data);

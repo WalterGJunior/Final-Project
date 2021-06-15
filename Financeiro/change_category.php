@@ -10,7 +10,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])){
     
     $idCategoria = $_GET['cod'];
 
-    $dados = $objDao->detalharCategoria($idCategoria);
+    $dados = $objDao->CategoriesDetails($idCategoria);
 
     if(count($dados) == 0){
         header('location: consultar_categoria.php');
@@ -21,7 +21,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])){
     $idCategoria = $_POST['cod'];
     $nome = $_POST['nome'];
 
-   $ret = $objDao->AlterarCategoria($nome, $idCategoria);
+   $ret = $objDao->ChangeCategory($nome, $idCategoria);
 
    header('location: consultar_categoria.php?ret=' . $ret);
    exit;
@@ -29,7 +29,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])){
 }else if(isset($_POST['btn_excluir'])){
     $idCategoria = $_POST['cod'];
 
-    $ret = $objDao->DeleteCategoria($idCategoria);
+    $ret = $objDao->DeleteCategory($idCategoria);
 
     header('location: consultar_categoria.php?ret=' . $ret);
     exit;

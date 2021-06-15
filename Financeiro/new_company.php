@@ -11,7 +11,7 @@ if (isset($_POST['btn_gravar'])) {
 
     $objDao = new CompanyDAO();
 
-    $ret = $objDao->CadastrarEmpresa($empresa, $telefone, $endereco);
+    $ret = $objDao->CreateCompany($empresa, $telefone, $endereco);
 }
 
 ?>
