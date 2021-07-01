@@ -13,20 +13,21 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
     $dados = $objDao->AccountDetail($idAccount);
 
     if (count($dados) == 0) {
-        header('location: consultar_empresa.php');
+        header('location: search_company.php');
         exit;
     }
 } else if (isset($_POST['btn_salvar'])) {
+    $idAccount = $_POST['cod'];
     $banco = $_POST['banco'];
-    $agencia = $_POST['agencia'];
+    $bic = $_POST['bic'];
     $conta = $_POST['conta'];
     $saldo = $_POST['saldo'];
 
     $objDao = new AccountDAO();
 
-    $ret = $objDao->AlterAccount($banco, $agencia, $conta, $saldo);
-
-    header('location: consultar_conta.php?ret=' . $ret);
+    $ret = $objDao->AlterAccount($idAccount, $banco, $bic, $conta, $saldo);
+    
+    header('location: search_account.php?ret=' . $ret);
     exit;
 } else if (isset($_POST['btn_excluir'])) {
 
@@ -34,10 +35,10 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
 
     $ret = $objDao->DeleteAccount($idAccount);
 
-    header('location: consultar_conta.php?ret=' . $ret);
+    header('location: search_account.php?ret=' . $ret);
     exit;
 } else {
-    header('location: consultar_conta.php');
+    header('location: search_account.php');
     exit;
 }
 
@@ -67,34 +68,34 @@ include_once '_head.php';
 
                         <?php include_once '_msg.php'; ?>
 
-                        <h2>Alterar Conta</h2>
-                        <h5>Aqui você pode alterar os dados da sua Conta Bancária </h5>
+                        <h2>Change you Account</h2>
+                        <h5>Here you can make changes in your Bank Account </h5>
 
                     </div>
                 </div>
                 <!-- /. ROW  -->
                 <hr />
 
-                <form action="alterar_conta.php" method="POST">
+                <form action="change_account.php" method="POST">
                     <input type="hidden" name="cod" value="<?= $dados[0]['id_account'] ?>">
                     <div class="form-group">
-                        <label>Nome do Banco*:</label>
-                        <input class="form-control" placeholder="Digite o nome do banco..." name="banco" id="banco" value="<?= $dados[0]['bank_name'] ?>" />
+                        <label>Bank name*:</label>
+                        <input class="form-control" placeholder="Type the Bank name..." name="banco" id="banco" value="<?= $dados[0]['bank_name'] ?>" />
                     </div>
                     <div class="form-group">
-                        <label>Agência*:</label>
-                        <input class="form-control" placeholder="Digite o nome da Agência..." name="agencia" id="agencia" value="<?= $dados[0]['branch_number'] ?>" />
+                        <label>Bank Identifier Code ( BIC ):</label>
+                        <input class="form-control" placeholder="Type the BIC code..." name="bic" id="bic" value="<?= $dados[0]['bic_number'] ?>" />
                     </div>
                     <div class="form-group">
-                        <label>Número da Conta*:</label>
-                        <input class="form-control" placeholder="Digite o Número da Conta..." name="conta" id="conta" value="<?= $dados[0]['account_number'] ?>" />
-                    </div>
+                        <label>Account number*:</label>
+                        <input class="form-control" placeholder="Type the Account number..." name="conta" id="conta" value="<?= $dados[0]['account_number'] ?>" />
+                    </div>                    
                     <div class="form-group">
-                        <label>Saldo*:</label>
-                        <input class="form-control" placeholder="Digite o Saldo..." name="saldo" id="saldo" value="<?= $dados[0]['available_founds'] ?>" />
+                        <label>Available funds*:</label>
+                        <input class="form-control" placeholder="Digite o Saldo..." name="saldo" id="saldo" value="<?= $dados[0]['available_funds'] ?>" />
                     </div>
-                    <button type="submit" onclick="return ValidarConta()" class="btn btn-success" name="btn_salvar">Salvar</button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete">Excluir</button>
+                    <button type="submit" onclick="return ValidarConta()" class="btn btn-success" name="btn_salvar">Save</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete">Delete</button>
                     <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">

@@ -18,5 +18,5 @@ require_once '../DAO/UtilDAO.php';
     <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">Hello, <?= UtilDAO::UserLoggedIn() ?> - Contact us: +353 (83) 393 2198</div>
+font-size: 16px;">Hello, <?= UtilDAO::NameUserLoggedIn() ?> - Contact us: +353 (83) 393 2198</div>
 </nav>

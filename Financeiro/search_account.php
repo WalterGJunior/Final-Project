@@ -48,8 +48,8 @@ include_once '_head.php';
                                     <thead>
                                         <tr>
                                             <th>Bank Name</th>
-                                            <th>Branch number</th>
                                             <th>Account Number</th>
+                                            <th>BIC</th>
                                             <th>Available Funds</th>
                                             <th>Action</th>
                                         </tr>
@@ -58,11 +58,11 @@ include_once '_head.php';
                                     <?php for($i = 0; $i<count($Accounts);$i++) { ?>
                                         <tr class="odd gradeX">
                                             <td><?= $Accounts[$i]['bank_name']?></td>
-                                            <td><?= $Accounts[$i]['branch_number']?></td>
+                                            <td><?= $Accounts[$i]['bic_number']?></td>
                                             <td><?= $Accounts[$i]['account_number']?></td>
-                                            <td><?= $Accounts[$i]['available_founds']?></td>                                            
+                                            <td><?= $Accounts[$i]['available_funds']?></td>                                            
                                             <td>
-                                                <a href="change_account.php?cod=<?=$Accounts[$i]['id_account']?>" class="btn btn-warning btn-sm">Alterar</a>
+                                                <a href="change_account.php?cod=<?=$Accounts[$i]['id_account']?>" class="btn btn-warning btn-sm">Change</a>
                                             </td>
                                         </tr> 
                                     <?php }?>                                          

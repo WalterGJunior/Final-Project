@@ -17,12 +17,12 @@ class UtilDAO{
 
         }
 
-        public static function CodeUserLogged(){
+        public static function UserLoggedIn(){
             self::StartSession();
             return $_SESSION['cod'];      
         }
 
-        public static function UserLoggedIn(){
+        public static function NameUserLoggedIn(){
             self::StartSession();
             return $_SESSION['name'];
         }

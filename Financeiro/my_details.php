@@ -11,8 +11,8 @@ if (isset($_POST['btn_gravar'])) {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
    
-
     $ret = $objDao->SaveMyDetails($nome, $email);
+
 }
 
 $data = $objDao->ShowMyDetails();
@@ -53,7 +53,7 @@ include_once '_head.php';
                 <!-- /. ROW  -->
                 <hr />
 
-                <form action="meus_dados.php" method="POST">
+                <form action="my_details.php" method="POST">
                     <div class="form-group">
                         <label>Name</label>
                         <input class="form-control" placeholder="Type your name" name="nome" id="nome" value="<?= $data[0]['user_name']?>"/>

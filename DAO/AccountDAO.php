@@ -5,18 +5,18 @@ require_once 'UtilDAO.php';
 
 class AccountDAO extends Connection{
 
-    public function CreateAccount($banco, $agencia, $conta, $saldo){
+    public function CreateAccount($banco, $bic, $conta, $saldo){
 
-        if(trim($banco) == '' || trim($agencia) == '' || trim($conta) == '' || trim($saldo) == ''){
+        if(trim($banco) == '' || trim($bic) == '' || trim($conta) == '' || trim($saldo) == ''){
             return 0;
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'insert into tb_account 
-        (bank_name, branch_number, account_number, available_founds, fk_id_user)
+        (bank_name, account_number, bic_number, available_funds, fk_id_user)
         values
         (?,?,?,?,?);';
         
@@ -28,7 +28,7 @@ class AccountDAO extends Connection{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $banco);
-        $sql->bindValue(2, $agencia);
+        $sql->bindValue(2, $bic);
         $sql->bindValue(3, $conta);
         $sql->bindValue(4, $saldo);
         $sql->bindValue(5, UtilDAO::UserLoggedIn());
@@ -49,14 +49,14 @@ class AccountDAO extends Connection{
 
     public function SearchAccount(){
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'select id_account, 
                             bank_name,
-                            branch_number,
+                            bic_number,
                             account_number,
-                            available_founds
+                            available_funds
                         from tb_account
                         where fk_id_user = ? order by bank_name ASC';
         
@@ -83,14 +83,14 @@ class AccountDAO extends Connection{
     public function AccountDetail($idAccount){
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'select id_account, 
                             bank_name,
-                            branch_number,
+                            bic_number,
                             account_number,
-                            available_founds
+                            available_funds
                         from tb_account
                         where id_account =?
                         and fk_id_user = ?';
@@ -116,22 +116,23 @@ class AccountDAO extends Connection{
         return  $sql->fetchAll();
     }
 
-    public function AlterAccount($banco, $agencia, $conta, $saldo){
-        if(trim($banco) == '' || trim($agencia) == '' || trim($conta) == '' || trim($saldo) == ''){
+    public function AlterAccount($idAccount, $banco, $bic, $conta, $saldo){
+
+        if(trim($banco) == '' || trim($bic) == '' || trim($conta) == '' || trim($saldo) == ''){
             return 0;
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'update tb_account  
                         set  bank_name = ?,
-                        branch_number =?,
-                        account_number =?,
-                        available_founds =?
+                            bic_number =?, 
+                            account_number =?,                                               
+                            available_funds =?
                         where id_account = ?
-                           and fk_id_user = ?';
+                            and fk_id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -141,11 +142,12 @@ class AccountDAO extends Connection{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $banco);
-        $sql->bindValue(2, $agencia);
+        $sql->bindValue(2, $bic);
         $sql->bindValue(3, $conta);
         $sql->bindValue(4, $saldo);
-        $sql->bindValue(5, UtilDAO::UserLoggedIn());
-
+        $sql->bindValue(5, $idAccount);
+        $sql->bindValue(6, UtilDAO::UserLoggedIn());
+         
         try {
 
             //Step 6:  Execute in the database 
@@ -154,10 +156,11 @@ class AccountDAO extends Connection{
             return 1;
 
         } catch (Exception $ex) {
-            //echo $ex->getMessage(); 
+            echo $ex->getMessage(); 
             return -1;
+            
         }
-
+        
         return  $sql->fetchAll();
     }
 
@@ -167,7 +170,7 @@ class AccountDAO extends Connection{
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'delete 

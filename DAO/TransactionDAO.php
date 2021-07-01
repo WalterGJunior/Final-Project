@@ -11,7 +11,7 @@ class TransactionDAO extends Connection{
         }
 
         //Step 1: Creating the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'insert into tb_transactions
@@ -44,11 +44,11 @@ class TransactionDAO extends Connection{
 
             if($tipo == 1){
                 $sql_command = 'update tb_account 
-                                    set available_founds = available_founds + ?
+                                    set available_funds = available_funds + ?
                                 where id_account = ?';
             }else if($tipo == 2){
                 $sql_command = 'update tb_account 
-                                    set available_founds = available_founds - ?
+                                    set available_funds = available_funds - ?
                                 where id_account = ?';
             }
 
@@ -79,7 +79,7 @@ class TransactionDAO extends Connection{
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'delete 
@@ -104,12 +104,12 @@ class TransactionDAO extends Connection{
 
             if($type == 1){
                 $sql_command = 'update tb_account 
-                                    set available_founds = available_founds - ?
+                                    set available_funds = available_funds - ?
                                 where id_account = ?';
             }else if($type == 2){
                 
                 $sql_command = 'update tb_account 
-                                    set available_founds = available_founds + ?
+                                    set available_funds = available_funds + ?
                                 where id_account = ?';
             }
 
@@ -134,14 +134,13 @@ class TransactionDAO extends Connection{
 
     } 
 
-
     public function SearchTransaction($type, $initial_date, $final_date){
         if(trim($initial_date) == '' || trim($final_date) == ''){
             return 0;
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'select id_transactions,
@@ -153,7 +152,7 @@ class TransactionDAO extends Connection{
                                company_name,
                                bank_name,
                                account_number,
-                               branch_number,
+                               bic_number,
                                transaction_comments
                         from tb_transactions
                         inner join tb_category
@@ -200,7 +199,7 @@ class TransactionDAO extends Connection{
     public function ShowLatestTransactions(){
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'select id_transactions,
@@ -212,7 +211,7 @@ class TransactionDAO extends Connection{
                                company_name,
                                bank_name,
                                account_number,
-                               branch_number,
+                               bic_number,
                                transaction_comments
                         from tb_transactions
                         inner join tb_category
@@ -251,7 +250,7 @@ class TransactionDAO extends Connection{
 
     public function TotalEarnings(){
 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
         $sql_command = 'select sum(transactions_amount) as total
                             from tb_transactions
                         where transaction_type = 1
@@ -270,7 +269,7 @@ class TransactionDAO extends Connection{
     }
 
     public function TotalExpenses(){
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         $sql_command = 'select sum(transactions_amount) as total
                         from tb_transactions

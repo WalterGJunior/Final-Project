@@ -9,7 +9,7 @@ define('DB', 'db_financialcontrol'); //Banco
 /**
  * Conexao.class TIPO [Conexão]
  * Descricao: Estabelece conexões com o banco usando SingleTon
- * @copyright (c) year, WMBarros
+ 
  */
 
 class Connection {
@@ -36,7 +36,7 @@ class Connection {
         return  self::$Connect;
     }
 
-    public static function retornarConexao() {
+    public static function returnConnection() {
         return  self::Connect();
     }
     

@@ -11,7 +11,7 @@ class CategoryDAO extends Connection{
             return 0;
         }
         //Step 1: Creating the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'insert into tb_category
@@ -26,7 +26,7 @@ class CategoryDAO extends Connection{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $nome);
-        $sql->bindValue(2, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, UtilDAO::UserLoggedIn());
 
         try {
 
@@ -47,7 +47,7 @@ class CategoryDAO extends Connection{
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'update tb_category  
@@ -64,7 +64,7 @@ class CategoryDAO extends Connection{
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $nome);
         $sql->bindValue(2, $idCategoria);
-        $sql->bindValue(3, UtilDAO::CodigoLogado());
+        $sql->bindValue(3, UtilDAO::UserLoggedIn());
 
         try {
 
@@ -83,7 +83,7 @@ class CategoryDAO extends Connection{
 
     public function SearchCategory(){
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'select id_category, 
@@ -98,7 +98,7 @@ class CategoryDAO extends Connection{
         $sql = $connection->prepare($sql_command); 
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
-        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(1, UtilDAO::UserLoggedIn());
 
         //Step 7: Remove the Index from the Array. 
         //return each row as an array indexed by column name 
@@ -117,7 +117,7 @@ class CategoryDAO extends Connection{
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'delete 
@@ -133,7 +133,7 @@ class CategoryDAO extends Connection{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $idCategoria);
-        $sql->bindValue(2, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, UtilDAO::UserLoggedIn());
 
         try {
 
@@ -153,7 +153,7 @@ class CategoryDAO extends Connection{
     public function CategoriesDetails($idCategoria){
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'select id_category, 
@@ -170,7 +170,7 @@ class CategoryDAO extends Connection{
 
         //Step 5: Verify if the SQL command that I have to be settled up. If there re BindValues
         $sql->bindValue(1, $idCategoria);
-        $sql->bindValue(2, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, UtilDAO::UserLoggedIn());
 
         //Step 7: Remove the Index from the Array. 
         //return each row as an array indexed by column name 

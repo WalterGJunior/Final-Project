@@ -107,7 +107,7 @@ include_once '_head.php';
                                                         <td><?= $transaction[$i]['transaction_type'] == 1 ? 'Earnings' : 'Expenses' ?></td>
                                                         <td><?= $transaction[$i]['category_name'] ?></td>
                                                         <td><?= $transaction[$i]['company_name'] ?></td>
-                                                        <td><?= $transaction[$i]['bank_name'] ?> / Ag. <?= $transaction[$i]['branch_number'] ?> - Num.<?= $transaction[$i]['account_number'] ?> </td>
+                                                        <td><?= $transaction[$i]['bank_name'] ?> / BIC. <?= $transaction[$i]['bic_number'] ?> - Account Number.<?= $transaction[$i]['account_number'] ?> </td>
                                                         <td>€ <?= number_format($transaction[$i]['transactions_amount'], 2, ',', '.') ?></td>
                                                         <td><?= $transaction[$i]['transaction_comments'] ?></td>
 

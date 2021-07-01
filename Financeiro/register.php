@@ -25,13 +25,13 @@ include_once '_head.php';
     <div class="container">
         <div class="row text-center  ">
             <div class="col-md-12">
-
+                <br />  
                 <?php include_once '_msg.php'; ?>
 
                 <br />
-                <h2> Controle Financeiro : Cadastro</h2>
+                <h2> Financial Control : Register</h2>
 
-                <h5>( Faça seu seu cadastro )</h5>
+                <h5>( Sign up )</h5>
                 <br />
             </div>
         </div>
@@ -40,29 +40,29 @@ include_once '_head.php';
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong> Preencher todos os campos </strong>
+                        <strong> * Indicates Required Field </strong>
                     </div>
                     <div class="panel-body">
-                        <form action="cadastro.php" method="post" >
+                        <form action="register.php" method="post" >
                             <br />
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
-                                <input type="text" class="form-control" placeholder="Your Name" name="nome" />
+                                <input type="text" class="form-control" placeholder="* Your Name" name="nome" />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" placeholder="Your Email" name="email" />
+                                <input type="text" class="form-control" placeholder="* Your Email" name="email" />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" placeholder="Enter Password" name="senha" />
+                                <input type="password" class="form-control" placeholder="* Enter Password" name="senha" />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" placeholder="Retype Password" name="rsenha" />
+                                <input type="password" class="form-control" placeholder="* Retype Password" name="rsenha" />
                             </div>
 
-                            <button class="btn btn-success " name="btn_finalizar">Finalizar Cadastro</button>
+                            <button class="btn btn-success " name="btn_finalizar">Complete</button>
                             <hr />
                             Already Registered ? <a href="login.php">Login here</a>
                         </form>

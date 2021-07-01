@@ -20,7 +20,7 @@ if(isset($_GET['close']) && $_GET['close']==1){
                 <a href="my_details.php"><i class="fa fa-user fa-3x"></i> My Details</a>
             </li>
 
-            <!-- CATEGORIA -->
+            <!-- CATEGORY -->
             <li>
                 <a href="#"><i class="fa fa-sitemap fa-3x"></i> Category<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -32,7 +32,7 @@ if(isset($_GET['close']) && $_GET['close']==1){
                     </li>
                 </ul>
             </li>
-            <!-- EMPRESA -->
+            <!-- COMPANY -->
             <li>
                 <a href="#"><i class="fa fa-building fa-3x"></i>Company<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -44,7 +44,7 @@ if(isset($_GET['close']) && $_GET['close']==1){
                     </li>
                 </ul>
             </li>
-            <!-- CONTA -->
+            <!-- BANK ACCOUNT -->
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-3x"></i>Bank Account<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -56,7 +56,7 @@ if(isset($_GET['close']) && $_GET['close']==1){
                     </li>
                 </ul>
             </li>
-            <!-- MOVIMENTO -->
+            <!-- TRANSACTION -->
             <li>
                 <a href="#"><i class="fa fa-signal fa-3x"></i> Transactions<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

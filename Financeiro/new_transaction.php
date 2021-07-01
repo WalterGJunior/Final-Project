@@ -62,7 +62,7 @@ include_once '_head.php';
                 <!-- /. ROW  -->
                 <hr />
 
-                <form action="realizar_movimento.php" method="POST">
+                <form action="new_transaction.php" method="POST">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Type:</label>
@@ -111,7 +111,7 @@ include_once '_head.php';
                                 <option value="">Select</option>
                                 <?php foreach($accounts as $item){?>
                                     <option value="<?= $item['id_account']?>">
-                                        <?= 'Bank Name: ' . $item['bank_name'] . ', Branch Number: ' . $item['branch_number'] . ' / ' . $item['account_number'] . ', Available Funds: ' . $item['available_founds']?>
+                                        <?= 'Bank Name: ' . $item['bank_name'] . ', Account Details: ' . $item['account_number'] . ' / ' . $item['bic_number'] . ', Available Funds: ' . $item['available_funds']?>
                                     </option>
                                 <?php }?>
                             </select>
@@ -123,7 +123,7 @@ include_once '_head.php';
                             <label>Comments (Optional)</label>
                             <textarea class="form-control" rows="3" name="obs"></textarea>
                         </div>
-                        <button type="submit" onclick="return ValidarMovimento()" class="btn btn-success" name="btn_gravar">Gravar</button>
+                        <button type="submit" onclick="return ValidarMovimento()" class="btn btn-success" name="btn_gravar">Salve</button>
 
                     </div>
                 </form>

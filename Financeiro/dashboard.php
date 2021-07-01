@@ -25,7 +25,7 @@ include_once '_head.php';
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Dashboard</h2>
-                        <h5>Nesta página, você encontrará as principais informações </h5>
+                        <h5>Here you will find the main information regards to your financial situation.</h5>
 
                     </div>
                 </div>
@@ -39,7 +39,7 @@ include_once '_head.php';
                             </span>
                             <div class="text-box">
                                 <p class="main-text">120 </p><br>
-                                <p class="text-muted">Total de Empresas Cadastradas</p>
+                                <p class="text-muted">Total of Companies Registered</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@ include_once '_head.php';
                             </span>
                             <div class="text-box">
                                 <p class="main-text">30 </p><br>
-                                <p class="text-muted">Total de Categorias Cadastradas</p>
+                                <p class="text-muted">Total of Categories Registered</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ include_once '_head.php';
                             </span>
                             <div class="text-box">
                                 <p class="main-text">240 </p><br>
-                                <p class="text-muted">Total de Contas Cadastradas</p>
+                                <p class="text-muted">Total of Accounts Registered</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ include_once '_head.php';
                             </span>
                             <div class="text-box">
                                 <p class="main-text">3 </p><br>
-                                <p class="text-muted">Total de Movimentos Realizados</p>
+                                <p class="text-muted">Total of Transactions Realized</p>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@ include_once '_head.php';
                     <div class="col-md-9 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Entradas / Saídas
+                                Earnings / Expenses
                             </div>
                             <div class="panel-body">
                                 <div id="morris-bar-chart"></div>
@@ -98,7 +98,7 @@ include_once '_head.php';
                                 <h3>120  </h3>
                             </div>
                             <div class="panel-footer back-footer-green">
-                                Total de Entradas
+                                Total Cash Inflow
 
                             </div>
                         </div>
@@ -108,7 +108,7 @@ include_once '_head.php';
                                 <h3>200 </h3>
                             </div>
                             <div class="panel-footer back-footer-red">
-                                Total de Saídas
+                                Total Cash Outflow
 
                             </div>
                         </div>

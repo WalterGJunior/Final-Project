@@ -6,13 +6,13 @@ require_once '../DAO/AccountDAO.php';
 
 if (isset($_POST['btn_gravar'])) {
     $banco = $_POST['banco'];
-    $agencia = $_POST['agencia'];
     $conta = $_POST['conta'];
+    $bic = $_POST['bic'];
     $saldo = $_POST['saldo'];
 
     $objDao = new AccountDAO();
 
-    $ret = $objDao->CreateAccount($banco, $agencia, $conta, $saldo);
+    $ret = $objDao->CreateAccount($banco, $bic, $conta, $saldo);
 }
 
 ?>
@@ -47,18 +47,18 @@ include_once '_head.php';
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <form action="nova_conta.php" method="POST">
+                <form action="new_account.php" method="POST">
                 <div class="form-group">
                     <label>Bank name*:</label>
                     <input class="form-control" placeholder="Type the Bank name..." name="banco" id="banco"/>
                 </div>
                 <div class="form-group">
-                    <label>Branch number*:</label>
-                    <input class="form-control" placeholder="Type the Branch number..." name="agencia" id="agencia"/>
+                    <label>Account number*:</label>
+                    <input class="form-control" placeholder="Type the Account number..." name="conta" id="conta"/>
                 </div>
                 <div class="form-group">
-                    <label>Account Number*:</label>
-                    <input class="form-control" placeholder="Type the Account Number..." name="conta" id="name"/>
+                    <label>Bank Identifier Code ( BIC )*:</label>
+                    <input class="form-control" placeholder="Type the BIC Number..." name="bic" id="bic"/>
                 </div>
                 <div class="form-group">
                     <label>Available funds*:</label>

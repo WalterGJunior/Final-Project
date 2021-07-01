@@ -8,7 +8,7 @@ if (isset($_POST['btn_acessar'])) {
 
     $objDao = new UserDAO();
 
-    $ret = $objDao->ValidarLogin($email, $senha);
+    $ret = $objDao->ValidateLogin($email, $senha);
 }
 
 ?>
@@ -25,7 +25,7 @@ if (isset($_POST['btn_acessar'])) {
     <div class="container">
         <div class="row text-center ">
             <div class="col-md-12">
-
+            <br>
             <?php include_once '_msg.php'; ?>
 
                 <br />  

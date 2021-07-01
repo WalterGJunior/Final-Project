@@ -39,9 +39,9 @@ function ValidarConta(){
         $("#banco").focus();
         return false;
     }
-    if( $("#agencia").val().trim() == ''){
-        alert("Preencher o campo AGENCIA");
-        $("#agencia").focus();
+    if( $("#bic").val().trim() == ''){
+        alert("Preencher o campo BIC");
+        $("#bic").focus();
         return false;
     }
     if( $("#conta").val().trim() == ''){

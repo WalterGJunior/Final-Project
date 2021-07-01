@@ -9,34 +9,34 @@ if (isset($ret)) {
     switch ($ret) {
         case 0:
             echo '<div class="alert alert-warning">
-                    Preencher o(s) campo(s) Obrigatório(s);
+                    Warning! Please, complete all the required fields;
                 </div>';
             break;
 
         case 1:
             echo '<div class="alert alert-success">
-                    Ação realizada com sucesso
+                    Action realized successfully
                 </div>';
             break;
         case -1:
             echo '<div class="alert alert-danger">
-                    Ocorreu um erro na Operação. Tente novamente mais tarde!;
+                    An Error occurred in this operation. Please, try again later!;
                 </div>';
             break;
         case -2:
             echo '<div class="alert alert-danger">
-                        A senha devera conter no mínimo 6 caracteres;
+                        Password must have minimum 6 characters;
                     </div>';
             break;
         case -3:
             echo '<div class="alert alert-danger">
-                        A senha e o Repetir senha não conferem;
+                        Password must match the previous entry;                       
                     </div>';
             break;
             case -4:
                 echo '<div class="alert alert-danger">
-                          O registro não pode ser excluído pois esta em uso;
-                        </div>';
+                        The register cannot be deleted, once it is already used;
+                      </div>';
             break;
             case -5:
                 echo '<div class="alert alert-danger">

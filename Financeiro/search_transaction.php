@@ -66,7 +66,7 @@ include_once '_head.php';
                 <!-- /. ROW  -->
                 <hr />
 
-                <form method="POST" action="consultar_movimento.php">
+                <form method="POST" action="search_transaction.php">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Transaction Type:</label>
@@ -100,21 +100,21 @@ include_once '_head.php';
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Resultados Encontrados
+                                    Results found
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
                                                 <tr>
-                                                    <th>Data</th>
-                                                    <th>Tipo</th>
-                                                    <th>Categoria</th>
-                                                    <th>Empresa</th>
-                                                    <th>Conta</th>
-                                                    <th>Valor</th>
-                                                    <th>Observação</th>
-                                                    <th>Ação</th>
+                                                    <th>Date</th>
+                                                    <th>Type</th>
+                                                    <th>Category</th>
+                                                    <th>Company</th>
+                                                    <th>Account</th>
+                                                    <th>Ammount</th>
+                                                    <th>Comments</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -132,13 +132,13 @@ include_once '_head.php';
                                                         <td><?= $transaction[$i]['transaction_type'] == 1 ? 'Earnings' : 'Expenses' ?></td>
                                                         <td><?= $transaction[$i]['category_name'] ?></td>
                                                         <td><?= $transaction[$i]['company_name'] ?></td>
-                                                        <td><?= $transaction[$i]['bank_name'] ?> / Ag. <?= $transaction[$i]['branch_number'] ?> - Num.<?= $transaction[$i]['account_number'] ?> </td>
+                                                        <td><?= $transaction[$i]['bank_name'] ?> / BIC. <?= $transaction[$i]['bic_number'] ?> - Account Number.<?= $transaction[$i]['account_number'] ?> </td>
                                                         <td>€ <?= number_format($transaction[$i]['transactions_amount'], 2, ',', '.') ?></td>
                                                         <td><?= $transaction[$i]['transaction_comments'] ?></td>
                                                         <td>
-                                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ModalDelete<?= $i?>">Excluir</button>
+                                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ModalDelete<?= $i?>">Delete</button>
 
-                                                            <form method="POST" action="consultar_movimento.php">
+                                                            <form method="POST" action="search_transaction.php">
                                                                 <input type="hidden" name="id_transaction" value="<?=$transaction[$i]['id_transactions'] ?>"/>
                                                                 <input type="hidden" name="id_account" value="<?=$transaction[$i]['fk_id_account'] ?>"/>
                                                                 <input type="hidden" name="amount" value="<?=$transaction[$i]['transactions_amount'] ?>"/>

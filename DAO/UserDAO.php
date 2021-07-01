@@ -8,7 +8,7 @@ class UserDAO extends Connection{
     public function ShowMyDetails(){
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'select user_name, 
@@ -45,7 +45,7 @@ class UserDAO extends Connection{
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'update tb_user
@@ -83,7 +83,7 @@ class UserDAO extends Connection{
             return 0;
         }
 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         $sql_command = 'select id_user, user_name from tb_user
                         where user_email = ? and user_password = ?';
@@ -109,7 +109,7 @@ class UserDAO extends Connection{
         $name = $user[0]['user_name'];
         UtilDAO::CreateSession($cod, $name);
 
-        header('location: meus_dados.php');
+        header('location: my_details.php');
         exit;
     }
 
@@ -118,7 +118,7 @@ class UserDAO extends Connection{
             return 0;
         }
 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         $sql_command = 'select coun(user_email) as result from tb_user where user_email = ?';
 
@@ -141,7 +141,7 @@ class UserDAO extends Connection{
             return 0;
         }
 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         $sql_command = 'select coun(user_email) as result 
                         from tb_user where user_email = ? and id_user != ?';
@@ -178,8 +178,9 @@ class UserDAO extends Connection{
             return -5;
         }
 
-        $connection = parent::retornarConexao();
-        $sql_command = 'insert into tb_user(user_name, user_email, user_password, registration_date)
+        $connection = parent::returnConnection();
+        $hash = password_hash($senha, PASSWORD_DEFAULT);
+        $sql_command = 'insert into tb_user(user_name, user_email, $hash, registration_date)
                         values (?,?,?,?)';
 
         $sql = new PDOStatement();

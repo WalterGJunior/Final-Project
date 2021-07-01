@@ -13,7 +13,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
     $dados = $objDao->CompanyDetail($idEmpresa);
 
     if (count($dados) == 0) {
-        header('location: consultar_empresa.php');
+        header('location: search_company.php');
         exit;
     }
 } else if (isset($_POST['btn_salvar'])) {
@@ -26,7 +26,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
 
     $ret = $objDao->ChangeCompany($idEmpresa, $companyName, $telephoneCompany, $companyAddress);
 
-    header('location: consultar_empresa.php?ret=' . $ret);
+    header('location: search_company.php?ret=' . $ret);
     exit;
 } else if (isset($_POST['btn_excluir'])) {
 
@@ -34,10 +34,10 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])) {
 
     $ret = $objDao->DeleteCompany($idEmpresa);
 
-    header('location: consultar_empresa.php?ret=' . $ret);
+    header('location: search_company.php?ret=' . $ret);
     exit;
 } else {
-    header('location: consultar.empresa.php');
+    header('location: search_company.php');
     exit;
 }
 
@@ -66,27 +66,27 @@ include_once '_head.php';
 
                         <?php include_once '_msg.php'; ?>
 
-                        <h2>Alterar Empresa</h2>
-                        <h5>Cadastre aqui todas as suas empresas </h5>
+                        <h2>Change Company</h2>
+                        <h5>Here yo u can make changes in your compaies datails </h5>
 
                     </div>
                 </div>
                 <!-- /. ROW  -->
                 <hr />
 
-                <form action="alterar_empresa.php" method="POST">
+                <form action="change_company.php" method="POST">
                     <input type="hidden" name="cod" value="<?= $dados[0]['id_company'] ?>">
                     <div class="form-group">
-                        <label>Nome da empresa*:</label>
-                        <input class="form-control" placeholder="Digite aqui..." name="empresa" id="nomeempresa" value="<?= $dados[0]['company_name'] ?>" />
+                        <label>Company name*:</label>
+                        <input class="form-control" placeholder="Type here..." name="empresa" id="nomeempresa" value="<?= $dados[0]['company_name'] ?>" />
                     </div>
                     <div class="form-group">
-                        <label>Telefone:</label>
-                        <input class="form-control" placeholder="Digite aqui..." name="telefone" value="<?= $dados[0]['telephone_number'] ?>" />
+                        <label>Telephone:</label>
+                        <input class="form-control" placeholder="Type here..." name="telefone" value="<?= $dados[0]['telephone_number'] ?>" />
                     </div>
                     <div class="form-group">
-                        <label>Endereço:</label>
-                        <input class="form-control" placeholder="Digite aqui..." name="endereco" value="<?= $dados[0]['company_address'] ?>" />
+                        <label>Address:</label>
+                        <input class="form-control" placeholder="Type here..." name="endereco" value="<?= $dados[0]['company_address'] ?>" />
                     </div>
                     <button type="submit" onclick="return ValidarEmpresa()" class="btn btn-success" name="btn_salvar">Salvar</button>
                     <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#ModalDelete">Excluir</button>

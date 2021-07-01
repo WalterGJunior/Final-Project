@@ -11,7 +11,7 @@ class CompanyDAO extends Connection{
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'insert into tb_company
@@ -46,7 +46,7 @@ class CompanyDAO extends Connection{
 
     public function SearchCompany(){
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to search for the information in the database
         $sql_command = 'select id_company, 
@@ -79,7 +79,7 @@ class CompanyDAO extends Connection{
     public function CompanyDetail($idEmpresa){
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'select id_company, 
@@ -117,7 +117,7 @@ class CompanyDAO extends Connection{
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'update tb_company  
@@ -161,7 +161,7 @@ class CompanyDAO extends Connection{
         }
 
         //Step 1: Creting the variable that will recieve the object to the connection with the DB 
-        $connection = parent::retornarConexao();
+        $connection = parent::returnConnection();
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'delete 

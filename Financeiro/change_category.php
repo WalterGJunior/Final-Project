@@ -13,7 +13,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])){
     $dados = $objDao->CategoriesDetails($idCategoria);
 
     if(count($dados) == 0){
-        header('location: consultar_categoria.php');
+        header('location: search_category.php');
         exit;
     }
 
@@ -23,7 +23,7 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])){
 
    $ret = $objDao->ChangeCategory($nome, $idCategoria);
 
-   header('location: consultar_categoria.php?ret=' . $ret);
+   header('location: search_category.php?ret=' . $ret);
    exit;
 
 }else if(isset($_POST['btn_excluir'])){
@@ -31,11 +31,11 @@ if (isset($_GET['cod']) && is_numeric($_GET['cod'])){
 
     $ret = $objDao->DeleteCategory($idCategoria);
 
-    header('location: consultar_categoria.php?ret=' . $ret);
+    header('location: search_category.php?ret=' . $ret);
     exit;
 
 }else{
-    header('location: consultar_categoria.php');
+    header('location: search_category.php');
     exit;
 }
 
@@ -65,23 +65,23 @@ include_once '_head.php';
 
                     <?php include_once '_msg.php'; ?>
 
-                        <h2>Alterar Categoria</h2>
-                        <h5>Aqui você alterar ou excluir suas categorias </h5>
+                        <h2>Change Category</h2>
+                        <h5>Here you can make changes in all your categories </h5>
 
                     </div>
                 </div>
                 <!-- /. ROW  -->
                 <hr />
 
-                <form action="alterar_categoria.php" method="POST">
+                <form action="change_category.php" method="POST">
                 <input type="hidden" name="cod" value="<?= $dados[0]['id_category']?>">
                     <div class="form-group">
-                        <label>Nome da Categoria</label>
+                        <label>Category name</label>
                         <input class="form-control" placeholder="Digite o nome da categoria. Exemplo: Conta de Luz" 
                                name="nome" id="nomecategoria" value="<?= $dados[0]['category_name']?>"  maxlength="35" />
                     </div>
                     <button type="submit" onclick="return ValidarCategoria()" class="btn btn-success" 
-                            name="btn_salvar">Salvar</button>
+                            name="btn_salvar">Salve</button>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete">Excluir</button>
                             <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
