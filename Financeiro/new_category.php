@@ -42,7 +42,7 @@ include_once '_head.php';
                 <!-- /. ROW  -->
                 <hr />
 
-                <form action="nova_categoria.php" method="POST">
+                <form action="new_category.php" method="POST">
                     <div class="form-group">
                         <label>Category Name</label>
                         <input class="form-control" placeholder="Type the category name" name="nome" id="nomecategoria" maxlength="35"/>
