@@ -15,7 +15,7 @@ class CompanyDAO extends Connection{
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'insert into tb_company
-        (company_name, telephone_number, company_address, fk_id_user)
+        (company_name, telephone_number, company_address, id_user)
         values
         (?, ?, ?, ?);';
         
@@ -54,7 +54,7 @@ class CompanyDAO extends Connection{
                             telephone_number,
                             company_address
                         from tb_company
-                        where fk_id_user = ? order by company_name ASC';
+                        where id_user = ? order by company_name ASC';
         
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -88,7 +88,7 @@ class CompanyDAO extends Connection{
                             company_address
                         from tb_company
                         where id_company = ?
-                        and fk_id_user = ?';
+                        and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -125,7 +125,7 @@ class CompanyDAO extends Connection{
                             telephone_number =?,
                             company_address =?
                         where id_company = ?
-                           and fk_id_user = ?';
+                           and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -167,7 +167,7 @@ class CompanyDAO extends Connection{
         $sql_command = 'delete 
                         from tb_company  
                         where id_company = ?
-                           and fk_id_user = ?';
+                           and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();

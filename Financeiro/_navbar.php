@@ -13,7 +13,7 @@ if(isset($_GET['close']) && $_GET['close']==1){
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li>
-                <a href="dashboard.php"><i class="fa fa-dashboard fa-3x"></i>Dashboard</a>
+                <a href="main.php"><i class="fa fa-dashboard fa-3x"></i>Dashboard</a>
             </li>
 
             <li>

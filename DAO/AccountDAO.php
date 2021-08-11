@@ -16,7 +16,7 @@ class AccountDAO extends Connection{
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'insert into tb_account 
-        (bank_name, account_number, bic_number, available_funds, fk_id_user)
+        (bank_name, account_number, bic_number, available_funds, id_user)
         values
         (?,?,?,?,?);';
         
@@ -58,7 +58,7 @@ class AccountDAO extends Connection{
                             account_number,
                             available_funds
                         from tb_account
-                        where fk_id_user = ? order by bank_name ASC';
+                        where id_user = ? order by bank_name ASC';
         
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -93,7 +93,7 @@ class AccountDAO extends Connection{
                             available_funds
                         from tb_account
                         where id_account =?
-                        and fk_id_user = ?';
+                        and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -132,7 +132,7 @@ class AccountDAO extends Connection{
                             account_number =?,                                               
                             available_funds =?
                         where id_account = ?
-                            and fk_id_user = ?';
+                            and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -176,7 +176,7 @@ class AccountDAO extends Connection{
         $sql_command = 'delete 
                         from tb_account  
                         where id_account = ?
-                           and fk_id_user = ?';
+                           and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();

@@ -46,7 +46,7 @@ include_once '_head.php';
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <form action="nova_empresa.php" method="POST">
+                <form action="new_company.php" method="POST">
                     <div class="form-group">
                         <label>Company Name*:</label>
                         <input class="form-control" placeholder="Type here..." name="empresa" id="nomeempresa"/>

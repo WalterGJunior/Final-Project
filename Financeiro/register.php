@@ -8,9 +8,22 @@ if (isset($_POST['btn_finalizar'])) {
     $senha = $_POST['senha'];
     $rsenha = $_POST['rsenha'];
 
-    $objDao = new UserDAO();
+    if (trim($senha) != trim($rsenha)) {
+        return -3;
 
-    $ret = $objDao->CreateNewUser($nome, $email, $senha, $rsenha);
+    } else if (strlen($senha) < 6) {
+        return -2;
+
+    } else {
+
+        $password_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+        $objDao = new UserDAO();
+
+        $ret = $objDao->CreateNewUser($nome, $email, $password_hash);
+     
+        
+    }
 }
 
 ?>
@@ -25,7 +38,7 @@ include_once '_head.php';
     <div class="container">
         <div class="row text-center  ">
             <div class="col-md-12">
-                <br />  
+                <br />
                 <?php include_once '_msg.php'; ?>
 
                 <br />
@@ -43,7 +56,7 @@ include_once '_head.php';
                         <strong> * Indicates Required Field </strong>
                     </div>
                     <div class="panel-body">
-                        <form action="register.php" method="post" >
+                        <form action="register.php" method="post">
                             <br />
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>

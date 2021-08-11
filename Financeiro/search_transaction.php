@@ -4,19 +4,24 @@ require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
 require_once '../DAO/TransactionDAO.php';
+require_once '../DAO/CategoryDAO.php';
 
 $initial_date = '';
 $final_date = '';
 $type = '';
+$type_cat = '';
+
+$dao_category = new CategoryDAO();
 
 if (isset($_POST['btn_search'])) {
     $type = $_POST['type'];
     $initial_date = $_POST['initial_date'];
     $final_date = $_POST['final_date'];
+    $type_cat = $_POST['category'];
 
     $objDao = new TransactionDAO();
 
-    $transaction = $objDao->SearchTransaction($type, $initial_date, $final_date);
+    $transaction = $objDao->SearchTransaction($type, $type_cat, $initial_date, $final_date);
 
 }else if(isset($_POST['btn_excluir'])){
 
@@ -31,6 +36,7 @@ if (isset($_POST['btn_search'])) {
 
 }
 
+$categories = $dao_category ->SearchCategory();
 
 ?>
 
@@ -58,7 +64,7 @@ include_once '_head.php';
                     
                     <?php include_once '_msg.php'; ?>
 
-                        <h2>Search for your Transaction</h2>
+                        <h2>Search for your transaction by category</h2>
                         <h5>Here you can find all registered transactions in a given period </h5>
                         
                     </div>
@@ -76,6 +82,18 @@ include_once '_head.php';
                                 <option value="2" <?= $type == '2' ? 'selected' : '' ?>>Cash Outflow</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>Category:</label>
+                            <select class="form-control" name="category" >
+                                <option value="0" <?= $type_cat == '0' ? 'selected' : '' ?>>All</option>
+                                <?php foreach($categories as $category){?>
+                                    <option value="<?= $category['id_category']?>" <?= $type_cat == $category['id_category'] ? 'selected' : ''?>> 
+                                        <?= $category['category_name']?>
+                                    </option>
+                                <?php }?>
+                            </select>
+                        </div>
+                       
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
@@ -121,11 +139,13 @@ include_once '_head.php';
                                                 <?php
                                                 $total = 0;
                                                 for ($i = 0; $i < count($transaction); $i++) {
-                                                    if ($transaction[$i]['transaction_type'] == 1) {
+                                                    if ($transaction[$i]['transaction_type'] == 1 ) {
                                                         $total = $total + $transaction[$i]['transactions_amount'];
+
                                                     } else {
                                                         $total = $total - $transaction[$i]['transactions_amount'];
-                                                    }
+
+                                                    }                                                                                                        
                                                 ?>
                                                     <tr class="odd gradeX">
                                                         <td><?= $transaction[$i]['transactions_date'] ?></td>
@@ -140,7 +160,7 @@ include_once '_head.php';
 
                                                             <form method="POST" action="search_transaction.php">
                                                                 <input type="hidden" name="id_transaction" value="<?=$transaction[$i]['id_transactions'] ?>"/>
-                                                                <input type="hidden" name="id_account" value="<?=$transaction[$i]['fk_id_account'] ?>"/>
+                                                                <input type="hidden" name="id_account" value="<?=$transaction[$i]['id_account'] ?>"/>
                                                                 <input type="hidden" name="amount" value="<?=$transaction[$i]['transactions_amount'] ?>"/>
                                                                 <input type="hidden" name="type" value="<?=$transaction[$i]['transaction_type'] ?>"/>
 

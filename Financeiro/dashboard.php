@@ -1,7 +1,25 @@
 <?php
+
 require_once '../DAO/UtilDAO.php';
 UtilDAO::VerifySession();
 
+require_once '../DAO/TransactionDAO.php';
+
+
+$dao = new TransactionDAO();
+
+$total_earnings = $dao->TotalEarnings();
+$total_expenses = $dao->TotalExpenses();
+$total_categories = $dao->TotalCategory();
+$total_accounts = $dao->TotalAccounts();
+$total_companies = $dao->TotalCompanies();
+$total_transactions = $dao->TotalTransactions();
+
+$row = $dao->BarChartDetails();
+
+
+$chart_data = "{ Earning:'" . $row[0]['earnings'] . "', Expenses:'" . $row[0]['expenses'] . "'  }";
+$chart_data = substr($chart_data, 0, -2);
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +56,7 @@ include_once '_head.php';
                                 <i class="fa fa-envelope-o"></i>
                             </span>
                             <div class="text-box">
-                                <p class="main-text">120 </p><br>
+                                <p class="main-text"><?= $total_companies[0]['total'] ?></p><br>
                                 <p class="text-muted">Total of Companies Registered</p>
                             </div>
                         </div>
@@ -49,7 +67,7 @@ include_once '_head.php';
                                 <i class="fa fa-bars"></i>
                             </span>
                             <div class="text-box">
-                                <p class="main-text">30 </p><br>
+                                <p class="main-text"><?= $total_categories[0]['total'] ?></p><br>
                                 <p class="text-muted">Total of Categories Registered</p>
                             </div>
                         </div>
@@ -60,7 +78,7 @@ include_once '_head.php';
                                 <i class="fa fa-bell-o"></i>
                             </span>
                             <div class="text-box">
-                                <p class="main-text">240 </p><br>
+                                <p class="main-text"><?= $total_accounts[0]['total'] ?> </p><br>
                                 <p class="text-muted">Total of Accounts Registered</p>
                             </div>
                         </div>
@@ -71,7 +89,7 @@ include_once '_head.php';
                                 <i class="fa fa-rocket"></i>
                             </span>
                             <div class="text-box">
-                                <p class="main-text">3 </p><br>
+                                <p class="main-text"><?= $total_transactions[0]['total'] ?></p><br>
                                 <p class="text-muted">Total of Transactions Realized</p>
                             </div>
                         </div>
@@ -87,7 +105,18 @@ include_once '_head.php';
                                 Earnings / Expenses
                             </div>
                             <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
+                                <div id="chart"></div>
+                                <script>
+                                    Morris.Bar({
+                                        element: 'chart',
+                                        data: [<?php echo $chart_data; ?>],
+                                        xkey: 'year',
+                                        ykeys: ['earnings', 'expenses'],
+                                        labels: ['Earrnings', 'Expenses'],
+                                        hideHover: 'auto',
+                                        stacked:true
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -95,7 +124,7 @@ include_once '_head.php';
                         <div class="panel panel-primary text-center no-boder bg-color-green">
                             <div class="panel-body">
                                 <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>120  </h3>
+                                <h3>€ <?= $total_earnings[0]['total'] != '' ? number_format($total_earnings[0]['total'], 2, ',', '.') : 0 ?> </h3>
                             </div>
                             <div class="panel-footer back-footer-green">
                                 Total Cash Inflow
@@ -105,7 +134,7 @@ include_once '_head.php';
                         <div class="panel panel-primary text-center no-boder bg-color-red">
                             <div class="panel-body">
                                 <i class="fa fa-edit fa-5x"></i>
-                                <h3>200 </h3>
+                                <h3>€ <?= $total_expenses[0]['total'] != '' ? number_format($total_expenses[0]['total'], 2, ',', '.') : 0 ?> </h3>
                             </div>
                             <div class="panel-footer back-footer-red">
                                 Total Cash Outflow
@@ -123,8 +152,6 @@ include_once '_head.php';
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
-
-
 
 </body>
 

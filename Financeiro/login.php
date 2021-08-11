@@ -2,6 +2,8 @@
 
 require_once '../DAO/UserDAO.php';
 
+
+
 if (isset($_POST['btn_acessar'])) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -25,6 +27,8 @@ if (isset($_POST['btn_acessar'])) {
     <div class="container">
         <div class="row text-center ">
             <div class="col-md-12">
+            <br>
+            <img src="./assets/img/cct-logo.jpg" class="img-fluid" alt="Responsive image">
             <br>
             <?php include_once '_msg.php'; ?>
 

@@ -15,7 +15,7 @@ class CategoryDAO extends Connection{
 
         //Step 2: variable that will receive the SQL command to insert the information in the database
         $sql_command = 'insert into tb_category
-                        (category_name, fk_id_user)
+                        (category_name, id_user)
                         values (?, ?);';
         
         //Step 3: Creating a object to send the information to the database
@@ -53,7 +53,7 @@ class CategoryDAO extends Connection{
         $sql_command = 'update tb_category  
                         set category_name = ?
                         where id_category = ?
-                           and fk_id_user = ?';
+                           and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -89,7 +89,7 @@ class CategoryDAO extends Connection{
         $sql_command = 'select id_category, 
                             category_name
                         from tb_category
-                        where fk_id_user = ?  order by category_name ASC';
+                        where id_user = ?  order by category_name ASC';
         
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -123,7 +123,7 @@ class CategoryDAO extends Connection{
         $sql_command = 'delete 
                         from tb_category  
                         where id_category = ?
-                           and fk_id_user = ?';
+                           and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
@@ -160,7 +160,7 @@ class CategoryDAO extends Connection{
                             category_name
                         from tb_category
                         where id_category = ?
-                           and fk_id_user = ?';
+                           and id_user = ?';
 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();

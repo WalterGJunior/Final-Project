@@ -101,4 +101,5 @@ function ValidarConsultarMovimento(){
         $("#dataFinal").focus();
         return false;
     }
+
 }
