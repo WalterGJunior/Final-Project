@@ -1,6 +1,6 @@
 # Guided Technology Project - CCT College Dublin
-Higher Diploma in Science in Computing 
-Name: Walter Guimarães Junior
+* Higher Diploma in Science in Computing 
+* Name: Walter Guimarães Junior
 
 # Financial Control - Web Application
 
