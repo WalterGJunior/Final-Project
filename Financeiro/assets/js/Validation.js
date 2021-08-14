@@ -3,12 +3,12 @@ function ValidarMeusDados(){
     var email = $("#email").val();
 
     if (nome.trim() == '') {
-        alert("Preencher o campo NOME");
+        alert("Please, You have to inform the USER NAME");
         $("#nome").focus();
         return false;
     }
     if (email.trim() == '') {
-        alert("Preencher o campo E-MAIL");
+        alert("Please, You have to inform the E-MAIL");
         $("#email").focus();
         return false;
     }
@@ -17,7 +17,7 @@ function ValidarMeusDados(){
 function ValidarCategoria(){
 
     if( $("#nomecategoria").val().trim() == ''){
-        alert("Preencher o campo NOME DA CATEGORIA");
+        alert("Please, You have to inform the CATEGORY NAME");
         $("#nomecategoria").focus();
         return false;
     }
@@ -26,7 +26,7 @@ function ValidarCategoria(){
 function ValidarEmpresa(){
 
     if( $("#nomeempresa").val().trim() == ''){
-        alert("Preencher o campo EMPRESA");
+        alert("Please, You have to inform the COMPANY NAME");
         $("#nomeempresa").focus();
         return false;
     }
@@ -35,22 +35,22 @@ function ValidarEmpresa(){
 function ValidarConta(){
 
     if( $("#banco").val().trim() == ''){
-        alert("Preencher o campo BANCO");
+        alert("Please, You have to inform the BANK NAME");
         $("#banco").focus();
         return false;
     }
     if( $("#bic").val().trim() == ''){
-        alert("Preencher o campo BIC");
+        alert("Please, You have to inform the BIC number");
         $("#bic").focus();
         return false;
     }
     if( $("#conta").val().trim() == ''){
-        alert("Preencher o campo CONTA");
+        alert("Please, You have to inform the ACCOUNT NUMBER");
         $("#conta").focus();
         return false;
     }
     if( $("#saldo").val().trim() == ''){
-        alert("Preencher o campo SALDO");
+        alert("Please, You have to inform the AVAILABLE FUNDS");
         $("#saldo").focus();
         return false;
     }
@@ -92,12 +92,12 @@ function ValidarMovimento(){
 
 function ValidarConsultarMovimento(){
     if($("#dataInicial").val().trim() == ""){
-        alert("Preencher o campo DATA INICIAL");
+        alert("REQUIRED: The initial Date is missing");
         $("#dataInicial").focus();
         return false;
     }
     if($("#dataFinal").val().trim() == ""){
-        alert("Preencher o campo DATA FINAL");
+        alert("REQUIRED: The final Date is missing");
         $("#dataFinal").focus();
         return false;
     }

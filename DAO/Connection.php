@@ -1,10 +1,10 @@
 <?php
 
-// Configurações do site
+
 define('HOST', 'localhost'); //IP
-define('USER', 'root'); //usuario
-define('PASS', 'Pass1234'); //Senha
-define('DB', 'db_financialcontrol'); //Banco
+define('USER', 'root'); //User
+define('PASS', 'Pass1234'); //password
+define('DB', 'db_financialcontrol'); //Database
 
 /**
  * Conexao.class TIPO [Conexão]
@@ -20,7 +20,7 @@ class Connection {
     private static function Connect() {
         try {
 
-            //Verifica se a conexão não existe
+            //verify if there is a connection
             if (self::$Connect == null):
 
                 $dsn = 'mysql:host=' . HOST . ';dbname=' . DB;

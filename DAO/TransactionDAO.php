@@ -171,11 +171,7 @@ class TransactionDAO extends Connection
             $sql_command = $sql_command . ' and tb_category.id_category = ?';
         }
 
-        //if( $type == 0 && $type_cat != 0){
-        //$sql_command = $sql_command . ' and tb_category.id_category = ?';
-        //}
-
-
+ 
         //Step 3: Creating a object to send the information to the database
         $sql = new PDOStatement();
 
@@ -197,12 +193,6 @@ class TransactionDAO extends Connection
             } else if ($type_cat == 0 && $type != 0) {
                 $sql->bindValue(4, $type);
             }
-
-//eu tinha tendado fazer algo nesse sentido. COmo vc tem 2 filtros que podem ser ALL...vc tem que pensar nas combinações deles
-//COM CATEGORIA e sem TIPO
-// COM TIPO e sem CATEGORIA
-//COM OS 2 JUNTOS
-//SE OS 2 FOREM ALL nem monta os bindValues deles, ficando portanto as 3 possibilidades. 
 
             //Step 7: Remove the Index from the Array. 
             //return each row as an array indexed by column name 
