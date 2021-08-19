@@ -185,12 +185,12 @@ class TransactionDAO extends Connection
 
         try {
 
-            if ($type != 0 && $type_cat != 0) {
+            if ($type != 0 && $type_cat != 0) { // all
                 $sql->bindValue(4, $type);
                 $sql->bindValue(5, $type_cat);
-            } else if ($type_cat != 0 && $type == 0) {
+            } else if ($type_cat != 0 && $type == 0) { //only type of transaction
                 $sql->bindValue(4, $type_cat);
-            } else if ($type_cat == 0 && $type != 0) {
+            } else if ($type_cat == 0 && $type != 0) { //only the category 
                 $sql->bindValue(4, $type);
             }
 

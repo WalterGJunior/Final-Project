@@ -177,11 +177,11 @@ class UserDAO extends Connection
         }
 
         //if(strlen($senha) < 6){
-        //  return -2;
+          //return -2;
         //} 
 
         //if(trim($senha) != trim($rsenha)){
-        // return -3;
+         //return -3;
         //} 
 
         //if ($this->CheckDuplicatedEmailsChanges($email) != 0) {
